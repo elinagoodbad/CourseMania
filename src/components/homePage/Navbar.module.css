@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 10%;
+  padding: 1rem 15%;
   background: rgba(18, 18, 18, 0.7);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -13,19 +13,11 @@
   z-index: 1000;
 }
 
-.navbar-logo {
-  font-size: 1.75rem;
-  transition: transform 0.3s ease;
-}
-
-.logoLink {
+.navbar-logo a {
+  font-size: 1.3rem;
   font-weight: 600;
   color: #ffffff;
   text-decoration: none;
-}
-
-.navbar-logo:hover {
-  transform: scale(1.1);
 }
 
 .navbar-links {
@@ -39,19 +31,11 @@
   margin: 0 1.5rem;
 }
 
-.navLink {
+.navbar-links a {
   text-decoration: none;
   color: #ffffff;
   font-size: 1.125rem;
   font-weight: 500;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.navLink:hover {
-  color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-  transform: scale(1.1);
 }
 
 .navbar-auth {
@@ -59,30 +43,10 @@
   align-items: center;
 }
 
-.authLink {
+.navbar-auth a {
   margin-left: 1.5rem;
   text-decoration: none;
   color: #ffffff;
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 500;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.authLink:hover {
-  color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-  transform: scale(1.1);
-}
-
-.signup {
-  font-weight: 700;
-  color: #007bff;
-}
-
-.signup:hover {
-  color: #ffffff;
-  background-color: #007bff;
-  border-radius: 4px;
-  transform: scale(1.1);
 }
