@@ -1,0 +1,59 @@
+/* Navbar.module.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+.navbar-logo img {
+  width: 100px;
+}
+.navbar-links {
+  display: flex;
+  list-style: none;
+}
+
+.navbar-links li {
+  margin: 0 1rem;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: #007bff;
+}
+
+.navbar-auth {
+  display: flex;
+}
+
+.navbar-auth a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.navbar-auth a:hover {
+  color: #007bff;
+}
+
+.navbar-auth .signup {
+  font-weight: bold;
+  color: #007bff;
+}

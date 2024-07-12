@@ -1,55 +1,37 @@
 import React from "react";
-import {
-  Navbar as BootstrapNavbar,
-  Button,
-  Container,
-  Form,
-  Nav,
-  NavDropdown,
-} from "react-bootstrap";
+import { Link } from "react-router-dom";
+import styles from "./Navbar.module.css";
 
 const Navbar = () => {
   return (
-    <div>
-      <BootstrapNavbar expand="lg" className="bg-body-tertiary">
-        <Container fluid>
-          <BootstrapNavbar.Brand href="#">Navbar scroll</BootstrapNavbar.Brand>
-          <BootstrapNavbar.Toggle aria-controls="navbarScroll" />
-          <BootstrapNavbar.Collapse id="navbarScroll">
-            <Nav
-              className="me-auto my-2 my-lg-0"
-              style={{ maxHeight: "100px" }}
-              navbarScroll
-            >
-              <Nav.Link href="#action1">Home</Nav.Link>
-              <Nav.Link href="#action2">Link</Nav.Link>
-              <NavDropdown title="Link" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action5">
-                  Something else here
-                </NavDropdown.Item>
-              </NavDropdown>
-              <Nav.Link href="#" disabled>
-                Link
-              </Nav.Link>
-            </Nav>
-            <Form className="d-flex">
-              <Form.Control
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-              />
-              <Button variant="outline-success">Search</Button>
-            </Form>
-          </BootstrapNavbar.Collapse>
-        </Container>
-      </BootstrapNavbar>
-    </div>
+    <nav className={styles.navbar}>
+      <div className={styles["navbar-logo"]}>
+        <Link to="/">
+          {/* <img
+            src="https://bootcamp.makers.kg/assets/img/makers_logo.svg"
+            alt=""
+          /> */}
+          Let's Do It!
+        </Link>
+      </div>
+      <ul className={styles["navbar-links"]}>
+        <li>
+          <Link to="/courses">Courses</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+        <li>
+          <Link to="/contact">Contact</Link>
+        </li>
+      </ul>
+      <div className={styles["navbar-auth"]}>
+        <Link to="/login">Login</Link>
+        <Link to="/signup" className={styles.signup}>
+          Sign Up
+        </Link>
+      </div>
+    </nav>
   );
 };
 
