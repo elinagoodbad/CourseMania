@@ -24,7 +24,7 @@ const Header = () => {
       ))}
       <Container className={styles.headerText}>
         <Typography variant="h1" className={styles.headerTitle}>
-          <span className={styles.bold}>U! SKILLZ</span>
+          <span className={styles.bold}>Let's Do It!</span>
         </Typography>
         <Typography variant="h4" className={styles.headerSubtitle}>
           Школа креативных профессий

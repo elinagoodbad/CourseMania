@@ -26,10 +26,7 @@ const Navbar = () => {
         </li>
       </ul>
       <div className={styles["navbar-auth"]}>
-        <Link to="/login">Login</Link>
-        <Link to="/signup" className={styles.signup}>
-          Sign Up
-        </Link>
+        <Link to="/register">Register</Link>
       </div>
     </nav>
   );

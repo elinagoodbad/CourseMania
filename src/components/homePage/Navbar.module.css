@@ -3,10 +3,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 15%;
-  background: rgba(18, 18, 18, 0.7);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  position: fixed;
+  background: #121212; /* Установите непрозрачный фон */
+  backdrop-filter: none; /* Уберите фильтр размытия */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Тень */
+  position: sticky; /* Закрепите Navbar при прокрутке */
   top: 0;
   left: 0;
   right: 0;
