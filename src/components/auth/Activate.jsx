@@ -9,7 +9,7 @@ const Activate = () => {
 
   const handleSave = () => {
     if (!email.trim() || !code.trim()) {
-      alert("Заполните все данные!");
+      alert("Please fill in all fields!");
       return;
     }
 

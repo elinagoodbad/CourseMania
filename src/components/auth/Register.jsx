@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContextProvider";
 import styles from "./Register.module.css";
 
@@ -16,11 +17,11 @@ const Register = () => {
       !password.trim() ||
       !passwordConfirm.trim()
     ) {
-      alert("Заполните все данные!");
+      alert("Please fill in all fields!");
       return;
     }
     if (password !== passwordConfirm) {
-      alert("Пароли не совпадают!");
+      alert("Passwords do not match!");
       return;
     }
 
@@ -63,6 +64,12 @@ const Register = () => {
       <button onClick={handleSave} className={styles.button}>
         Register
       </button>
+      <p className={styles.linkText}>
+        Already have an account?{" "}
+        <Link to="/login" className={styles.link}>
+          Login
+        </Link>
+      </p>
     </div>
   );
 };

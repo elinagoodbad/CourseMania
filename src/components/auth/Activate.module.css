@@ -11,7 +11,7 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  max-width: 500px;
+  max-width: 500px; /* Увеличена ширина */
   margin-left: auto;
   margin-right: auto;
 }

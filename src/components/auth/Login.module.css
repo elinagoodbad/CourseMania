@@ -11,7 +11,7 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  max-width: 500px;
+  max-width: 500px; /* Увеличена ширина */
   margin-left: auto;
   margin-right: auto;
 }
@@ -63,4 +63,20 @@
   box-shadow: 0 6px 16px rgba(255, 255, 255, 0.15);
   transform: translateY(-2px);
   background: linear-gradient(45deg, #3c3c3c, #2e2e2e);
+}
+
+.linkText {
+  margin-top: 1rem;
+  color: #ffffff;
+  font-size: 0.875rem;
+}
+
+.link {
+  color: #1e90ff; /* Цвет для ссылки */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.link:hover {
+  text-decoration: underline;
 }
