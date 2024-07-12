@@ -3,10 +3,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 15%;
-  background: #121212; /* Установите непрозрачный фон */
-  backdrop-filter: none; /* Уберите фильтр размытия */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Тень */
-  position: sticky; /* Закрепите Navbar при прокрутке */
+  background: #121212;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
@@ -45,6 +44,25 @@
 
 .navbar-auth a {
   margin-left: 1.5rem;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-user span {
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.logout-link {
   text-decoration: none;
   color: #ffffff;
   font-size: 1.125rem;
