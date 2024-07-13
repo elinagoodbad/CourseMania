@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContextProvider";
 import styles from "./Register.module.css";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 const Register = () => {
   const { handleRegister } = useAuth();
@@ -9,6 +11,8 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
 
   const handleSave = () => {
     if (
@@ -49,18 +53,34 @@ const Register = () => {
         placeholder="Email"
         className={styles.input}
       />
-      <input
-        onChange={(e) => setPassword(e.target.value)}
-        type="password"
-        placeholder="Password"
-        className={styles.input}
-      />
-      <input
-        onChange={(e) => setPasswordConfirm(e.target.value)}
-        type="password"
-        placeholder="Confirm Password"
-        className={styles.input}
-      />
+      <div className={styles.passwordContainer}>
+        <input
+          onChange={(e) => setPassword(e.target.value)}
+          type={showPassword ? "text" : "password"}
+          placeholder="Password"
+          className={styles.input}
+        />
+        <span
+          className={styles.passwordIcon}
+          onClick={() => setShowPassword(!showPassword)}
+        >
+          {showPassword ? <VisibilityOff /> : <Visibility />}
+        </span>
+      </div>
+      <div className={styles.passwordContainer}>
+        <input
+          onChange={(e) => setPasswordConfirm(e.target.value)}
+          type={showPasswordConfirm ? "text" : "password"}
+          placeholder="Confirm Password"
+          className={styles.input}
+        />
+        <span
+          className={styles.passwordIcon}
+          onClick={() => setShowPasswordConfirm(!showPasswordConfirm)}
+        >
+          {showPasswordConfirm ? <VisibilityOff /> : <Visibility />}
+        </span>
+      </div>
       <button onClick={handleSave} className={styles.button}>
         Register
       </button>

@@ -1,5 +1,5 @@
 .container {
-  margin-top: 7rem;
+  margin-top: 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,6 +69,7 @@
   margin-top: 1rem;
   color: #ffffff;
   font-size: 0.875rem;
+  text-align: center;
 }
 
 .link {
@@ -80,7 +81,26 @@
 .link:hover {
   text-decoration: underline;
 }
+
 .forgotPassword {
   margin-top: -0.5rem;
   margin-bottom: 1rem;
+}
+
+.passwordContainer {
+  position: relative;
+  width: 100%;
+}
+
+.passwordIcon {
+  position: absolute;
+  top: 35%;
+  right: 15px;
+  transform: translateY(-50%);
+  color: #9e9e9e;
+  cursor: pointer;
+}
+
+.passwordIcon:hover {
+  color: #ffffff;
 }

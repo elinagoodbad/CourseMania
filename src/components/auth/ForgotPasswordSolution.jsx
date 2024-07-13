@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useAuth } from "../../context/AuthContextProvider";
 import { Link } from "react-router-dom";
 import styles from "./ForgotPasswordSolution.module.css";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 const ForgotPasswordSolution = () => {
   const { handleForgotPasswordSolution } = useAuth();
@@ -9,6 +11,8 @@ const ForgotPasswordSolution = () => {
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [code, setCode] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
 
   const handleSubmit = () => {
     if (
@@ -49,20 +53,36 @@ const ForgotPasswordSolution = () => {
         onChange={(e) => setEmail(e.target.value)}
         className={styles.input}
       />
-      <input
-        type="password"
-        placeholder="New Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        className={styles.input}
-      />
-      <input
-        type="password"
-        placeholder="Confirm New Password"
-        value={passwordConfirm}
-        onChange={(e) => setPasswordConfirm(e.target.value)}
-        className={styles.input}
-      />
+      <div className={styles.passwordContainer}>
+        <input
+          type={showPassword ? "text" : "password"}
+          placeholder="New Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className={styles.input}
+        />
+        <span
+          className={styles.passwordIcon}
+          onClick={() => setShowPassword(!showPassword)}
+        >
+          {showPassword ? <VisibilityOff /> : <Visibility />}
+        </span>
+      </div>
+      <div className={styles.passwordContainer}>
+        <input
+          type={showPasswordConfirm ? "text" : "password"}
+          placeholder="Confirm New Password"
+          value={passwordConfirm}
+          onChange={(e) => setPasswordConfirm(e.target.value)}
+          className={styles.input}
+        />
+        <span
+          className={styles.passwordIcon}
+          onClick={() => setShowPasswordConfirm(!showPasswordConfirm)}
+        >
+          {showPasswordConfirm ? <VisibilityOff /> : <Visibility />}
+        </span>
+      </div>
       <input
         type="text"
         placeholder="Verification Code"
