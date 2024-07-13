@@ -10,6 +10,8 @@ import Activate from "../components/auth/Activate";
 import ForgotPassword from "../components/auth/ForgotPassword";
 import ForgotPasswordSolution from "../components/auth/ForgotPasswordSolution";
 import ChangePassword from "../components/auth/ChangePassword";
+import CartPage from "../pages/CartPage";
+import FavoritesPage from "../pages/FavoritesPage";
 
 const MainRoutes = () => {
   return (
@@ -24,6 +26,8 @@ const MainRoutes = () => {
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/reset-password" element={<ForgotPasswordSolution />} />
       <Route path="/change-password" element={<ChangePassword />} />
+      <Route path="/cart" element={<CartPage />} />
+      <Route path="/favorites" element={<FavoritesPage />} />
     </Routes>
   );
 };
