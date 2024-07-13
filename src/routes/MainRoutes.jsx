@@ -7,6 +7,9 @@ import ContactPage from "../pages/ContactPage";
 import Register from "../components/auth/Register";
 import Login from "../components/auth/Login";
 import Activate from "../components/auth/Activate";
+import ForgotPassword from "../components/auth/ForgotPassword";
+import ForgotPasswordSolution from "../components/auth/ForgotPasswordSolution";
+import ChangePassword from "../components/auth/ChangePassword";
 
 const MainRoutes = () => {
   return (
@@ -18,6 +21,9 @@ const MainRoutes = () => {
       <Route path="/register" element={<Register />} />
       <Route path="/activate" element={<Activate />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/reset-password" element={<ForgotPasswordSolution />} />
+      <Route path="/change-password" element={<ChangePassword />} />
     </Routes>
   );
 };
