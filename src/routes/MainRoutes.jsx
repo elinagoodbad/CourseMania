@@ -12,6 +12,7 @@ import ForgotPasswordSolution from "../components/auth/ForgotPasswordSolution";
 import ChangePassword from "../components/auth/ChangePassword";
 import CartPage from "../pages/CartPage";
 import FavoritesPage from "../pages/FavoritesPage";
+import AddProduct from "../components/products/AddProduct";
 
 const MainRoutes = () => {
   return (
@@ -28,6 +29,7 @@ const MainRoutes = () => {
       <Route path="/change-password" element={<ChangePassword />} />
       <Route path="/cart" element={<CartPage />} />
       <Route path="/favorites" element={<FavoritesPage />} />
+      <Route path="/addProduct" element={<AddProduct />} />
     </Routes>
   );
 };
