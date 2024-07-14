@@ -1,0 +1,124 @@
+.pageWrapper {
+  background-color: #000000;
+  min-height: 100vh;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.faqContainer {
+  width: 100%;
+  max-width: 800px;
+  background-color: #111111;
+  border-radius: 30px;
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  padding: 40px;
+}
+
+.faqTitle {
+  text-align: center;
+  color: #ffffff;
+  margin: 0 0 40px;
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+
+.faqItem {
+  margin-bottom: 20px;
+  background-color: #1a1a1a;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faqItem:last-child {
+  margin-bottom: 0;
+}
+
+.questionButton {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 25px 30px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.questionButton:hover {
+  background-color: #222222;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  color: #ffffff;
+  transition: transform 0.3s ease;
+}
+
+.questionButton.active .icon {
+  transform: rotate(45deg);
+}
+
+.questionButton.active {
+  background-color: #2a2a2a;
+  color: #ffffff;
+}
+
+.questionButton.active .icon {
+  color: #ffffff;
+}
+
+.answerContainer {
+  overflow: hidden;
+  transition: height 0.3s ease-out, opacity 0.3s ease-out;
+  opacity: 0;
+  background-color: #222222;
+}
+
+.answerContainer.show {
+  opacity: 1;
+}
+
+.answer {
+  padding: 25px 30px;
+  color: #cccccc;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .pageWrapper {
+    padding: 40px 15px;
+  }
+
+  .faqContainer {
+    border-radius: 20px;
+    padding: 30px 20px;
+  }
+
+  .faqTitle {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+
+  .questionButton {
+    font-size: 16px;
+    padding: 20px;
+  }
+
+  .answer {
+    font-size: 14px;
+    padding: 20px;
+  }
+}
