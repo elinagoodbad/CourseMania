@@ -6,28 +6,32 @@ const images = [
   "https://upload.wikimedia.org/wikipedia/commons/7/78/Vasily_Perov_-_%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%A4.%D0%9C.%D0%94%D0%BE%D1%81%D1%82%D0%BE%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_-_Google_Art_Project.jpg",
   "https://upload.wikimedia.org/wikipedia/commons/7/78/Vasily_Perov_-_%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%A4.%D0%9C.%D0%94%D0%BE%D1%81%D1%82%D0%BE%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_-_Google_Art_Project.jpg",
   "https://upload.wikimedia.org/wikipedia/commons/7/78/Vasily_Perov_-_%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%A4.%D0%9C.%D0%94%D0%BE%D1%81%D1%82%D0%BE%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_-_Google_Art_Project.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/7/78/Vasily_Perov_-_%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%A4.%D0%9C.%D0%94%D0%BE%D1%81%D1%82%D0%BE%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_-_Google_Art_Project.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/7/78/Vasily_Perov_-_%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%A4.%D0%9C.%D0%94%D0%BE%D1%81%D1%82%D0%BE%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_-_Google_Art_Project.jpg",
 ];
 
 const Header = () => {
   return (
     <Box className={styles.headerContainer}>
-      {images.map((image, index) => (
-        <img
-          key={index}
-          src={image}
-          alt={`Преподаватель ${index + 1}`}
-          className={styles.headerImage}
-          style={{ left: `${index * 20}%` }}
-        />
-      ))}
+      <Box className={styles.imageContainer}>
+        {images.map((image, index) => (
+          <Box
+            key={index}
+            className={styles.imageWrapper}
+            style={{ flex: `1 1 ${100 / images.length}%` }}
+          >
+            <img
+              src={image}
+              alt={`Преподаватель ${index + 1}`}
+              className={styles.headerImage}
+            />
+          </Box>
+        ))}
+      </Box>
       <Container className={styles.headerText}>
         <Typography variant="h1" className={styles.headerTitle}>
           <span className={styles.bold}>Let's Do It!</span>
         </Typography>
         <Typography variant="h4" className={styles.headerSubtitle}>
-          Школа креативных профессий
+          Creative Professions
         </Typography>
       </Container>
     </Box>
