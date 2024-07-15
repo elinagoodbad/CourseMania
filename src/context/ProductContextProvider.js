@@ -1,96 +1,72 @@
 import axios from "axios";
 import React, { createContext, useContext, useReducer } from "react";
 import { API } from "../helpers/const";
-
+import { useNavigate } from "react-router-dom";
 const productContext = createContext();
 export const useProduct = () => useContext(productContext);
 
 const ProductContextProvider = ({ children }) => {
-  const INIT_STATE = { products: [], count: 0, next: null, previous: null };
-
-  const reducer = (state, action) => {
+  const INIT_STATE = {
+    products: [],
+    pages: 10,
+  };
+  const reducer = (state = INIT_STATE, action) => {
     switch (action.type) {
       case "GET_PRODUCTS":
-        return {
-          ...state,
-          products: action.payload.results,
-          count: action.payload.count,
-          next: action.payload.next,
-          previous: action.payload.previous,
-        };
-      default:
-        return state;
+        return { ...state, products: action.payload };
     }
   };
-
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
+  const navigate = useNavigate();
+
+  //! getConfing
   const getConfig = () => {
-    const tokens = JSON.parse(localStorage.getItem("tokens"));
-    if (!tokens || !tokens.access) {
-      throw new Error("No access token found");
-    }
-    const Authorization = `Bearer ${tokens.access}`;
+    const tokens = JSON.parse(localStorage.getItem("tokens")) || {};
+    const Authorization = `Bearer ${tokens.access || ""}`;
     return {
       headers: { Authorization },
     };
   };
 
+  //! add
   const addProduct = async (formData) => {
     try {
-      const config = {
-        ...getConfig(),
-        headers: {
-          ...getConfig().headers,
-          "Content-Type": "multipart/form-data",
-        },
-      };
-      const response = await axios.post(`${API}/courses/`, formData, config);
-      console.log("Product added successfully:", response.data);
-      getProducts();
+      await axios.post(`${API}/courses/`, formData, getConfig());
+      navigate("/productPage");
     } catch (error) {
-      console.error(
-        "Error adding product:",
-        error.response ? error.response.data : error.message
-      );
+      console.log(error);
     }
   };
 
-  const getProducts = async (page = 1) => {
-    try {
-      const { data } = await axios.get(
-        `${API}/courses/?page=${page}`,
-        getConfig()
-      );
-      dispatch({ type: "GET_PRODUCTS", payload: data });
-    } catch (error) {
-      console.error(
-        "Error fetching products:",
-        error.response ? error.response.data : error.message
-      );
-    }
+  //! get
+  const getProducts = async () => {
+    const { data } = await axios.get(
+      `${API}/courses/${window.location.search}`,
+      getConfig()
+    );
+    dispatch({
+      type: "GET_PRODUCTS",
+      payload: data.results,
+    });
   };
 
-  const deleteProducts = async (id) => {
+  //! delete
+  const deleteProduct = async (slug) => {
     try {
-      await axios.delete(`${API}/courses/${id}/`, getConfig());
+      await axios.delete(`${API}/courses/${slug}/`, getConfig());
       getProducts();
     } catch (error) {
-      console.error(
-        "Error deleting product:",
-        error.response ? error.response.data : error.message
-      );
+      console.log(error);
     }
   };
 
   const values = {
     addProduct,
     getProducts,
+    deleteProduct,
     products: state.products,
-    count: state.count,
-    next: state.next,
-    previous: state.previous,
-    deleteProducts,
+    pages: state.pages,
   };
 
   return (

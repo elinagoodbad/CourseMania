@@ -1,25 +1,33 @@
 import React from "react";
+import { useProduct } from "../../context/ProductContextProvider";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+import IconButton from "@mui/material/IconButton";
 import styles from "./ProductCard.module.css";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ elem }) => {
+  const { deleteProduct } = useProduct();
+
   return (
-    <div className={styles.card}>
-      <h2 className={styles.title}>{product.title}</h2>
-      <p className={styles.slug}>Slug: {product.slug}</p>
-      {product.image_light && (
-        <img
-          src={product.image_light}
-          alt={`${product.title} (light)`}
-          className={styles.image}
-        />
-      )}
-      {product.image_dark && (
-        <img
-          src={product.image_dark}
-          alt={`${product.title} (dark)`}
-          className={styles.image}
-        />
-      )}
+    <div className={styles.productCard}>
+      <div className={styles.imageContainer}>
+        <img src={elem.image_light} alt={elem.slug} />
+      </div>
+      <div className={styles.content}>
+        <h2 className={styles.slug}>{elem.slug}</h2>
+        <div className={styles.iconGroup}>
+          <IconButton aria-label="edit" className={styles.iconButton}>
+            <EditIcon />
+          </IconButton>
+          <IconButton
+            aria-label="delete"
+            onClick={() => deleteProduct(elem.slug)}
+            className={styles.iconButton}
+          >
+            <DeleteIcon />
+          </IconButton>
+        </div>
+      </div>
     </div>
   );
 };

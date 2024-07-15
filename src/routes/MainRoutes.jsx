@@ -13,7 +13,9 @@ import ChangePassword from "../components/auth/ChangePassword";
 import CartPage from "../pages/CartPage";
 import FavoritesPage from "../pages/FavoritesPage";
 import AddProduct from "../components/products/AddProduct";
+import EditProduct from "../components/products/EditProduct";
 import ProductList from "../components/products/ProductList";
+import ProductPage from "../pages/ProductPage";
 
 const MainRoutes = () => {
   return (
@@ -31,7 +33,9 @@ const MainRoutes = () => {
       <Route path="/cart" element={<CartPage />} />
       <Route path="/favorites" element={<FavoritesPage />} />
       <Route path="/addProduct" element={<AddProduct />} />
+      <Route path="/editProduct" element={<EditProduct />} />
       <Route path="/productList" element={<ProductList />} />
+      <Route path="/productPage" element={<ProductPage />} />
     </Routes>
   );
 };
