@@ -72,7 +72,7 @@ const AuthContextProvider = ({ children }) => {
   // ! changePassword
   const handleChangePassword = async (formData) => {
     try {
-      await axios.post(`${API}/change-password/`, formData);
+      await axios.post(`${API}/ChangePassword/`, formData);
     } catch (error) {
       console.log(error);
     }
@@ -81,7 +81,7 @@ const AuthContextProvider = ({ children }) => {
   // ! forgotPassword
   const handleForgotPassword = async (formData) => {
     try {
-      await axios.post(`${API}/forgot-password/`, formData);
+      await axios.post(`${API}/ForgotPassword/`, formData);
       navigate("/reset-password");
     } catch (error) {
       console.log(error);
@@ -91,7 +91,7 @@ const AuthContextProvider = ({ children }) => {
   // ! forgotPasswordSolution
   const handleForgotPasswordSolution = async (formData) => {
     try {
-      await axios.post(`${API}/reset-password/`, formData);
+      await axios.post(`${API}/ForgotPasswordSolution/`, formData);
       navigate("/login");
     } catch (error) {
       console.log(error);
