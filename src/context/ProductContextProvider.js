@@ -8,12 +8,15 @@ export const useProduct = () => useContext(productContext);
 const ProductContextProvider = ({ children }) => {
   const INIT_STATE = {
     products: [],
+    oneProduct: {},
     pages: 10,
   };
   const reducer = (state = INIT_STATE, action) => {
     switch (action.type) {
       case "GET_PRODUCTS":
         return { ...state, products: action.payload };
+      case "GET_ONE_PRODUCT":
+        return { ...state, oneProduct: action.payload };
     }
   };
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
@@ -61,11 +64,26 @@ const ProductContextProvider = ({ children }) => {
     }
   };
 
+  //! getOneProduct
+  const getOneProduct = async (slug) => {
+    try {
+      const { data } = await axios.get(`{API}/courses/${slug}/`, getConfig());
+      dispatch({
+        type: "GET_ONE_PRODUCT",
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const values = {
     addProduct,
     getProducts,
     deleteProduct,
+    getOneProduct,
     products: state.products,
+    oneProduct: state.oneProduct,
     pages: state.pages,
   };
 
