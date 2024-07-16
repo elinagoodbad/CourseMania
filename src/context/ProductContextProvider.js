@@ -77,11 +77,18 @@ const ProductContextProvider = ({ children }) => {
     }
   };
 
+  //! edit
+  const editProduct = async (slug, editedProduct) => {
+    await axios.patch(`${API}/courses/${slug}/`, editedProduct, getConfig());
+    navigate("/productPage");
+  };
+
   const values = {
     addProduct,
     getProducts,
     deleteProduct,
     getOneProduct,
+    editProduct,
     products: state.products,
     oneProduct: state.oneProduct,
     pages: state.pages,
