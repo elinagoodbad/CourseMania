@@ -1,0 +1,312 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.aboutContainer {
+  font-family: "Arial", sans-serif;
+  color: #333;
+  padding: 20px;
+  background-color: #f4f4f4;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+  background: url("https://images.unsplash.com/photo-1528214968864-8dd00782fa9e?q=80&w=3019&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+    no-repeat center center/cover;
+  padding: 60px 20px;
+  border-radius: 10px;
+}
+
+.title {
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 10px;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: #fff;
+  animation: fadeInUp 1.5s ease-in-out;
+}
+
+.section {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 40px;
+}
+
+.card {
+  width: 45%;
+  background: #fff;
+  padding: 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  animation: fadeInUp 2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.imageContainer {
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.imageContainer:hover .image {
+  transform: scale(1.1);
+}
+
+.cardContent {
+  padding: 20px;
+  text-align: center;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.text {
+  font-size: 1rem;
+  color: #666;
+}
+
+.teamSection {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.team {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.teamMember {
+  width: 150px;
+  text-align: center;
+}
+
+.teamImage {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.teamName {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 10px 0 5px;
+}
+
+.teamRole {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.timelineSection {
+  margin-bottom: 40px;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.timelineItem {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: slideIn 1s ease-in-out;
+}
+
+.timelineContent {
+  text-align: left;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.testimonialsSection {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.testimonials {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.testimonial {
+  width: 45%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 2.5s ease-in-out;
+}
+
+.testimonialText {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.testimonialAuthor {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.projectsSection {
+  margin-bottom: 40px;
+}
+
+.projects {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.project {
+  width: 45%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.projectImage {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.projectTitle {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  color: #333;
+}
+
+.projectDescription {
+  font-size: 1rem;
+  color: #666;
+}
+
+.partnersSection {
+  margin-bottom: 40px;
+}
+
+.partners {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.partnerLogo {
+  width: 150px;
+  height: auto;
+}
+
+.ctaSection {
+  text-align: center;
+  margin: 40px 0;
+  padding: 40px;
+  background: linear-gradient(135deg, #007bff, #00bfae);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 2.5s ease-in-out;
+  color: #fff;
+}
+
+.ctaTitle {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.ctaText {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.ctaButton {
+  padding: 12px 25px;
+  font-size: 1rem;
+  color: #fff;
+  background: #2a527c;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ctaButton:hover {
+  background: #007bff;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.footer {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.footerText {
+  font-size: 0.9rem;
+  color: #888;
+}
