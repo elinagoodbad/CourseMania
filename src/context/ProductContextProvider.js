@@ -67,7 +67,7 @@ const ProductContextProvider = ({ children }) => {
   //! getOneProduct
   const getOneProduct = async (slug) => {
     try {
-      const { data } = await axios.get(`{API}/courses/${slug}/`, getConfig());
+      const { data } = await axios.get(`${API}/courses/${slug}/`, getConfig());
       dispatch({
         type: "GET_ONE_PRODUCT",
         payload: data,

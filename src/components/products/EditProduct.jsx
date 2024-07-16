@@ -1,43 +1,44 @@
 import React, { useState, useEffect } from "react";
 import { useProduct } from "../../context/ProductContextProvider";
+import { useParams } from "react-router-dom";
 import styles from "./EditProduct.module.css";
-import { useParams, useNavigate } from "react-router-dom";
 
 const EditProduct = () => {
-  const { getProduct, updateProduct } = useProduct();
+  const { getOneProduct, oneProduct, editProduct } = useProduct();
   const { slug } = useParams();
-  const navigate = useNavigate();
 
   const [title, setTitle] = useState("");
+  const [instructor, setInstructor] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
   const [imageLight, setImageLight] = useState(null);
   const [imageDark, setImageDark] = useState(null);
 
   useEffect(() => {
-    const loadProduct = async () => {
-      try {
-        const product = await getProduct(slug);
-        setTitle(product.title);
-      } catch (error) {
-        console.error("Error loading product:", error);
-      }
-    };
+    getOneProduct(slug);
+  }, []);
 
-    loadProduct();
-  }, [slug, getProduct]);
+  useEffect(() => {
+    if (oneProduct) {
+      const [courseTitle, courseInstructor, courseDescription] = (
+        oneProduct.title || ""
+      ).split(" | ");
+      setTitle(courseTitle || "");
+      setInstructor(courseInstructor || "");
+      setDescription(courseDescription || "");
+      setPrice(oneProduct.price || "");
+    }
+  }, [oneProduct]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("title", title);
+    formData.append("title", `${title} | ${instructor} | ${description}`);
+    formData.append("price", price);
     if (imageLight) formData.append("image_light", imageLight);
     if (imageDark) formData.append("image_dark", imageDark);
 
-    try {
-      await updateProduct(slug, formData);
-      navigate("/products"); // Переход на страницу списка продуктов после сохранения изменений
-    } catch (error) {
-      console.error("Error updating product:", error);
-    }
+    editProduct(slug, formData);
   };
 
   return (
@@ -46,11 +47,36 @@ const EditProduct = () => {
       <form onSubmit={handleSubmit} className={styles.form}>
         <input
           type="text"
-          placeholder="Product Name"
+          placeholder="Course Name"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           className={styles.input}
           required
+        />
+        <input
+          type="text"
+          placeholder="Instructor"
+          value={instructor}
+          onChange={(e) => setInstructor(e.target.value)}
+          className={styles.input}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          className={styles.input}
+          required
+        />
+        <input
+          type="number"
+          placeholder="Price"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+          className={styles.input}
+          required
+          step="0.01"
         />
         <div className={styles.fileInputContainer}>
           <input
@@ -61,7 +87,7 @@ const EditProduct = () => {
             className={styles.fileInput}
           />
           <label htmlFor="imageLight" className={styles.fileInputLabel}>
-            Choose Light Image
+            Choose New Light Image
           </label>
         </div>
         <div className={styles.fileInputContainer}>
@@ -73,11 +99,11 @@ const EditProduct = () => {
             className={styles.fileInput}
           />
           <label htmlFor="imageDark" className={styles.fileInputLabel}>
-            Choose Dark Image
+            Choose New Dark Image
           </label>
         </div>
         <button type="submit" className={styles.button}>
-          Save Changes
+          Update Product
         </button>
       </form>
     </div>

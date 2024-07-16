@@ -11,7 +11,8 @@
   margin: 2rem auto;
   width: 100%;
   max-width: 1000px;
-  height: 300px;
+  height: auto;
+  min-height: 300px;
   overflow: hidden;
   transition: transform var(--card-transition),
     box-shadow var(--card-transition);
@@ -55,20 +56,29 @@
   justify-content: space-between;
 }
 
-.slug {
+.title {
   color: #2c3e50;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
-  margin: 0;
+  margin: 0 0 1rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   line-height: 1.2;
+}
+
+.instructor,
+.duration,
+.slug {
+  color: #34495e;
+  font-size: 1rem;
+  margin: 0.5rem 0;
 }
 
 .iconGroup {
   display: flex;
   justify-content: flex-start;
   gap: 1rem;
+  margin-top: 1rem;
 }
 
 .iconButton {
@@ -97,7 +107,7 @@
     padding: 1.5rem;
   }
 
-  .slug {
-    font-size: 2rem;
+  .title {
+    font-size: 1.5rem;
   }
 }

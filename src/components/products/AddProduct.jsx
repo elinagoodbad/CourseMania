@@ -6,6 +6,9 @@ const AddProduct = () => {
   const { addProduct } = useProduct();
   const [slug, setSlug] = useState("");
   const [title, setTitle] = useState("");
+  const [instructor, setInstructor] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
   const [imageLight, setImageLight] = useState(null);
   const [imageDark, setImageDark] = useState(null);
 
@@ -13,13 +16,17 @@ const AddProduct = () => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("slug", slug);
-    formData.append("title", title);
+    formData.append("title", `${title} | ${instructor} | ${description}`);
+    formData.append("price", price);
     if (imageLight) formData.append("image_light", imageLight);
     if (imageDark) formData.append("image_dark", imageDark);
 
     addProduct(formData);
     setSlug("");
     setTitle("");
+    setInstructor("");
+    setDescription("");
+    setPrice("");
     setImageLight(null);
     setImageDark(null);
   };
@@ -38,9 +45,33 @@ const AddProduct = () => {
         />
         <input
           type="text"
-          placeholder="Product Name"
+          placeholder="Course Name"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          className={styles.input}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Instructor"
+          value={instructor}
+          onChange={(e) => setInstructor(e.target.value)}
+          className={styles.input}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          className={styles.input}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Price"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
           className={styles.input}
           required
         />

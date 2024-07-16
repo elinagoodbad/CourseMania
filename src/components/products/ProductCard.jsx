@@ -3,32 +3,37 @@ import { useProduct } from "../../context/ProductContextProvider";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import IconButton from "@mui/material/IconButton";
-import styles from "./ProductCard.module.css";
 import { useNavigate } from "react-router-dom";
+import styles from "./ProductCard.module.css";
 
 const ProductCard = ({ elem }) => {
   const { deleteProduct } = useProduct();
   const navigate = useNavigate();
 
+  const [title, instructor, description] = elem.title.split(" | ");
+
   return (
     <div className={styles.productCard}>
       <div className={styles.imageContainer}>
-        <img src={elem.image_light} alt={elem.slug} />
+        <img src={elem.image_light} alt={title} />
       </div>
       <div className={styles.content}>
-        <h2 className={styles.slug}>{elem.slug}</h2>
+        <h2 className={styles.title}>{title}</h2>
+        <p className={styles.instructor}>Instructor: {instructor}</p>
+        <p className={styles.description}>Description: {description}</p>
+        <p className={styles.price}>Price: ${elem.price}</p>
         <div className={styles.iconGroup}>
           <IconButton
-            aria-label="edit"
-            onClick={() => navigate(`/edit/${elem.id}`)}
             className={styles.iconButton}
+            aria-label="edit"
+            onClick={() => navigate(`/edit/${elem.slug}`)}
           >
             <EditIcon />
           </IconButton>
           <IconButton
-            aria-label="delete"
-            onClick={() => deleteProduct(elem.id)}
             className={styles.iconButton}
+            aria-label="delete"
+            onClick={() => deleteProduct(elem.slug)}
           >
             <DeleteIcon />
           </IconButton>

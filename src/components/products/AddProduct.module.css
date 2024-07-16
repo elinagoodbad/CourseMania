@@ -1,5 +1,5 @@
 .container {
-  margin-top: 4rem;
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,12 +38,12 @@
   color: #ffffff;
   font-size: 1rem;
   box-sizing: border-box;
-  text-align: left; /* Изменено для выравнивания текста по левому краю */
+  text-align: left;
 }
 
 .input::placeholder {
   color: #9e9e9e;
-  text-align: left; /* Изменено для выравнивания текста плейсхолдера по левому краю */
+  text-align: left;
 }
 
 .input:focus {
@@ -69,10 +69,10 @@
   background-color: #1e1e1e;
   color: #9e9e9e;
   font-size: 1rem;
-  text-align: left; /* Изменено для выравнивания текста по левому краю */
+  text-align: left;
   cursor: pointer;
   box-sizing: border-box;
-  padding-left: 1rem; /* Добавлено для добавления отступа слева для выравнивания текста по левому краю */
+  padding-left: 1rem;
 }
 
 .fileInputLabel:hover {
