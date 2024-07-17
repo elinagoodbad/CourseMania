@@ -1,40 +1,17 @@
 import React from "react";
-import { Box, Typography, Container } from "@mui/material";
 import styles from "./Header.module.css";
-
-const images = [
-  "https://sun9-24.userapi.com/impg/63ScMY3E00CR_WNVf6KFjqpSrmbdzPLCSiE_6w/-9YID7BJKVU.jpg?size=1024x1280&quality=96&sign=7322958897bc32f71098e1c225fbcf9b&type=album",
-  "https://sun9-63.userapi.com/impg/q5UowM-s-ybsatR1unUSVUXai8DewMOCoD9kDQ/pXjrdjWWXOs.jpg?size=666x1024&quality=96&sign=1bf9bea03712f53b2b4c849a94189c7c&type=album",
-  "https://sun9-43.userapi.com/impg/PR0i0QDzYf-aDFwP2FhRKs0bAE687whi4hYbKA/uDfhsUr34Pk.jpg?size=640x640&quality=96&sign=31fadcd5c9a79023570a49fa750e4736&type=album",
-];
 
 const Header = () => {
   return (
-    <Box className={styles.headerContainer}>
-      <Box className={styles.imageContainer}>
-        {images.map((image, index) => (
-          <Box
-            key={index}
-            className={styles.imageWrapper}
-            style={{ flex: `1 1 ${100 / images.length}%` }}
-          >
-            <img
-              src={image}
-              alt={`Преподаватель ${index + 1}`}
-              className={styles.headerImage}
-            />
-          </Box>
-        ))}
-      </Box>
-      <Container className={styles.headerText}>
-        <Typography variant="h1" className={styles.headerTitle}>
-          <span className={styles.bold}>Let's Do It!</span>
-        </Typography>
-        <Typography variant="h4" className={styles.headerSubtitle}>
-          Creative Professions
-        </Typography>
-      </Container>
-    </Box>
+    <header className={styles.header}>
+      <video autoPlay loop muted className={styles.backgroundVideo}>
+        <source
+          src="https://rr14---sn-n8v7kn7s.googlevideo.com/videoplayback?expire=1721233823&ei=P52XZs73GpjOi9oPpfi2wAY&ip=148.251.137.140&id=o-ALBp_R1DZmDkE3sbBl6JHDl8vY3L6523NJ7pkaGnep1g&itag=135&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&vprv=1&svpuc=1&mime=video%2Fmp4&rqh=1&gir=yes&clen=155267&dur=12.666&lmt=1634588858955458&keepalive=yes&c=ANDROID_TESTSUITE&txp=5316224&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cvprv%2Csvpuc%2Cmime%2Crqh%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIhAIBh0nwM-ukqGOCXXOUTbVrnfRzhlOxNFtZliQ0MOYKhAiB8ZNChrN5b8qz9tEC2xsmctOlun6CMzp4SV7oU_VCuPQ%3D%3D&rm=sn-4g5e6r7z&rrc=104,80&req_id=2de88e7b31a8a3ee&ipbypass=yes&redirect_counter=2&cm2rm=sn-hxb5apox-4g0s7e&fexp=24350516&cms_redirect=yes&cmsv=e&mh=Iv&mip=77.235.30.30&mm=29&mn=sn-n8v7kn7s&ms=rdu&mt=1721211897&mv=m&mvi=14&pl=20&lsparams=ipbypass,mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AHlkHjAwRAIgepc6IB9vCwxXb5tAFbSBQjDoRd7pWJayR9Rpji2zwPICIECQRnmZBt6mF7s7UezVNo7923nUbl5vKDsL4jYmqbU6"
+          type="video/mp4"
+        />
+      </video>
+      <h1 className={styles.title}>Let's Do It!</h1>
+    </header>
   );
 };
 
