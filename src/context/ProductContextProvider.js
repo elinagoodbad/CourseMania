@@ -57,7 +57,8 @@ const ProductContextProvider = ({ children }) => {
         `${API}/courses/${window.location.search}`,
         getConfig()
       );
-      const totalPages = Math.ceil(data.count / data.results.length);
+      const itemsPerPage = 3; // Количество товаров на странице
+      const totalPages = Math.ceil(data.count / itemsPerPage);
       dispatch({
         type: "GET_PRODUCTS",
         payload: { products: data.results, pages: totalPages },
