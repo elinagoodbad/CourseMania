@@ -1,4 +1,3 @@
-// Navbar.js
 import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContextProvider";
@@ -9,6 +8,7 @@ import {
   BookmarkBorder as BookmarkBorderIcon,
   Add as AddIcon,
 } from "@mui/icons-material";
+import { ADMIN } from "../../helpers/const";
 
 const Navbar = () => {
   const { currentUser, checkAuth, handleLogOut } = useAuth();
@@ -45,6 +45,8 @@ const Navbar = () => {
     setIsAddMenuOpen(!isAddMenuOpen);
   };
 
+  const isAdmin = ADMIN.includes(currentUser);
+
   return (
     <nav className={styles.navbar}>
       <div className={styles["navbar-logo"]}>
@@ -64,19 +66,24 @@ const Navbar = () => {
         <li>
           <Link to="/contact">Contact</Link>
         </li>
-        <li className={styles["add-menu-container"]} ref={addMenuRef}>
-          <IconButton className={styles["navbar-icon"]} onClick={toggleAddMenu}>
-            <AddIcon />
-          </IconButton>
-          <div
-            className={`${styles["add-menu"]} ${
-              isAddMenuOpen ? styles.active : ""
-            }`}
-          >
-            <Link to="/addCourse">Add Course</Link>
-            <Link to="/addProject">Add Project</Link>
-          </div>
-        </li>
+        {isAdmin && (
+          <li className={styles["add-menu-container"]} ref={addMenuRef}>
+            <IconButton
+              className={styles["navbar-icon"]}
+              onClick={toggleAddMenu}
+            >
+              <AddIcon />
+            </IconButton>
+            <div
+              className={`${styles["add-menu"]} ${
+                isAddMenuOpen ? styles.active : ""
+              }`}
+            >
+              <Link to="/addCourse">Add Course</Link>
+              <Link to="/addProject">Add Project</Link>
+            </div>
+          </li>
+        )}
       </ul>
       <div className={styles["navbar-right"]}>
         <div className={styles["navbar-icons"]}>
