@@ -10,7 +10,7 @@ const ProductCard = ({ elem }) => {
   const { deleteProduct } = useProduct();
   const navigate = useNavigate();
 
-  const [title, instructor, description] = elem.title.split(" | ");
+  const [title, instructor, description, price] = elem.title.split(" | ");
 
   return (
     <div className={styles.productCard}>
@@ -21,7 +21,7 @@ const ProductCard = ({ elem }) => {
         <h2 className={styles.title}>{title}</h2>
         <p className={styles.instructor}>Instructor: {instructor}</p>
         <p className={styles.description}>Description: {description}</p>
-        <p className={styles.price}>Price: ${elem.price}</p>
+        <p className={styles.price}>Price: {price}</p>
         <div className={styles.iconGroup}>
           <IconButton
             className={styles.iconButton}
