@@ -44,7 +44,7 @@ const ProductContextProvider = ({ children }) => {
   const addProduct = async (formData) => {
     try {
       await axios.post(`${API}/courses/`, formData, getConfig());
-      navigate("/productPage");
+      navigate("/courses");
     } catch (error) {
       console.log(error);
     }
@@ -93,7 +93,7 @@ const ProductContextProvider = ({ children }) => {
   //! edit
   const editProduct = async (slug, editedProduct) => {
     await axios.patch(`${API}/courses/${slug}/`, editedProduct, getConfig());
-    navigate("/productPage");
+    navigate("/courses");
   };
 
   const values = {
