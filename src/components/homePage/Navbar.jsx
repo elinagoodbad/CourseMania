@@ -1,3 +1,4 @@
+// Navbar.js
 import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContextProvider";
@@ -6,12 +7,15 @@ import { IconButton } from "@mui/material";
 import {
   ShoppingCartOutlined as ShoppingCartIcon,
   BookmarkBorder as BookmarkBorderIcon,
+  Add as AddIcon,
 } from "@mui/icons-material";
 
 const Navbar = () => {
   const { currentUser, checkAuth, handleLogOut } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAddMenuOpen, setIsAddMenuOpen] = useState(false);
   const menuRef = useRef(null);
+  const addMenuRef = useRef(null);
 
   useEffect(() => {
     checkAuth();
@@ -21,6 +25,9 @@ const Navbar = () => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
         setIsMenuOpen(false);
+      }
+      if (addMenuRef.current && !addMenuRef.current.contains(event.target)) {
+        setIsAddMenuOpen(false);
       }
     };
 
@@ -32,6 +39,10 @@ const Navbar = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const toggleAddMenu = () => {
+    setIsAddMenuOpen(!isAddMenuOpen);
   };
 
   return (
@@ -52,6 +63,19 @@ const Navbar = () => {
         </li>
         <li>
           <Link to="/contact">Contact</Link>
+        </li>
+        <li className={styles["add-menu-container"]} ref={addMenuRef}>
+          <IconButton className={styles["navbar-icon"]} onClick={toggleAddMenu}>
+            <AddIcon />
+          </IconButton>
+          <div
+            className={`${styles["add-menu"]} ${
+              isAddMenuOpen ? styles.active : ""
+            }`}
+          >
+            <Link to="/addCourse">Add Course</Link>
+            <Link to="/addProject">Add Project</Link>
+          </div>
         </li>
       </ul>
       <div className={styles["navbar-right"]}>

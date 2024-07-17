@@ -12,10 +12,9 @@ import ForgotPasswordSolution from "../components/auth/ForgotPasswordSolution";
 import ChangePassword from "../components/auth/ChangePassword";
 import CartPage from "../pages/CartPage";
 import FavoritesPage from "../pages/FavoritesPage";
-import AddProduct from "../components/products/AddProduct";
 import EditProduct from "../components/products/EditProduct";
 import ProductList from "../components/products/ProductList";
-import ProductPage from "../pages/ProductPage";
+import AddCourse from "../components/products/AddCourse";
 
 const MainRoutes = () => {
   return (
@@ -32,10 +31,9 @@ const MainRoutes = () => {
       <Route path="/change-password" element={<ChangePassword />} />
       <Route path="/cart" element={<CartPage />} />
       <Route path="/favorites" element={<FavoritesPage />} />
-      <Route path="/addProduct" element={<AddProduct />} />
+      <Route path="/addCourse" element={<AddCourse />} />
       <Route path="/edit/:slug" element={<EditProduct />} />
       <Route path="/productList" element={<ProductList />} />
-      <Route path="/productPage" element={<ProductPage />} />
     </Routes>
   );
 };

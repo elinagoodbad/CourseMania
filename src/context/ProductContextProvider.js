@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { createContext, useContext, useReducer } from "react";
 import { API } from "../helpers/const";
 import { useNavigate } from "react-router-dom";
+
 const productContext = createContext();
 export const useProduct = () => useContext(productContext);
 
@@ -9,21 +10,28 @@ const ProductContextProvider = ({ children }) => {
   const INIT_STATE = {
     products: [],
     oneProduct: {},
-    pages: 10,
+    pages: 1,
   };
+
   const reducer = (state = INIT_STATE, action) => {
     switch (action.type) {
       case "GET_PRODUCTS":
-        return { ...state, products: action.payload };
+        return {
+          ...state,
+          products: action.payload.products,
+          pages: action.payload.pages,
+        };
       case "GET_ONE_PRODUCT":
         return { ...state, oneProduct: action.payload };
+      default:
+        return state;
     }
   };
-  const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
+  const [state, dispatch] = useReducer(reducer, INIT_STATE);
   const navigate = useNavigate();
 
-  //! getConfing
+  //! getConfig
   const getConfig = () => {
     const tokens = JSON.parse(localStorage.getItem("tokens")) || {};
     const Authorization = `Bearer ${tokens.access || ""}`;
@@ -44,14 +52,19 @@ const ProductContextProvider = ({ children }) => {
 
   //! get
   const getProducts = async () => {
-    const { data } = await axios.get(
-      `${API}/courses/${window.location.search}`,
-      getConfig()
-    );
-    dispatch({
-      type: "GET_PRODUCTS",
-      payload: data.results,
-    });
+    try {
+      const { data } = await axios.get(
+        `${API}/courses/${window.location.search}`,
+        getConfig()
+      );
+      const totalPages = Math.ceil(data.count / data.results.length);
+      dispatch({
+        type: "GET_PRODUCTS",
+        payload: { products: data.results, pages: totalPages },
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   //! delete
