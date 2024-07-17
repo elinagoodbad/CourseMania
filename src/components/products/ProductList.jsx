@@ -34,7 +34,7 @@ const ProductList = () => {
       <h1>Our Courses</h1>
       <div className={styles.cardGrid}>
         {products.map((elem) => (
-          <ProductCard key={elem.id} elem={elem} />
+          <ProductCard key={elem.slug} elem={elem} />
         ))}
       </div>
       <div className={styles.paginationWrapper}>
