@@ -20,21 +20,23 @@ const EditCourse = () => {
 
   useEffect(() => {
     if (oneProduct) {
-      const [courseTitle, courseInstructor, courseDescription] = (
+      const [courseTitle, courseInstructor, courseDescription, coursePrice] = (
         oneProduct.title || ""
       ).split(" | ");
       setTitle(courseTitle || "");
       setInstructor(courseInstructor || "");
       setDescription(courseDescription || "");
-      setPrice(oneProduct.price || "");
+      setPrice(coursePrice || "");
     }
   }, [oneProduct]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("title", `${title} | ${instructor} | ${description}`);
-    formData.append("price", price);
+    formData.append(
+      "title",
+      `${title} | ${instructor} | ${description} | ${price}`
+    );
     if (imageLight) formData.append("image_light", imageLight);
     if (imageDark) formData.append("image_dark", imageDark);
 
