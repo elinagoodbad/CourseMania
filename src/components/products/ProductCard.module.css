@@ -1,48 +1,36 @@
 .productCard {
-  --card-padding: 2rem;
-  --card-radius: 1rem;
-  --card-transition: 0.3s ease;
-
-  display: grid;
-  grid-template-columns: 45% 1fr;
-  background-color: #ffffff;
-  border-radius: var(--card-radius);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  margin: 2rem auto;
+  display: flex;
+  background-color: #121212;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin: 5px auto;
   width: 100%;
-  max-width: 1000px;
-  height: auto;
-  min-height: 300px;
-  overflow: hidden;
-  transition: transform var(--card-transition),
-    box-shadow var(--card-transition);
-}
-
-.productCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-}
-
-.imageContainer {
+  max-width: 600px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
 }
 
-.imageContainer::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.1), transparent);
+.productCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.imageContainer {
+  flex: 0 0 190px;
+  height: 190px;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  margin-right: 1.5rem;
 }
 
 .imageContainer img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--card-transition);
+  transition: transform 0.3s ease;
 }
 
 .productCard:hover .imageContainer img {
@@ -50,64 +38,78 @@
 }
 
 .content {
-  padding: var(--card-padding);
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .title {
-  color: #2c3e50;
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 0 0 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  line-height: 1.2;
+  color: #ffffff;
+  font-size: 2.5rem; /* Увеличиваем размер шрифта */
+  font-weight: bold; /* Жирный шрифт */
+  text-align: center; /* Выравниваем по центру */
+  margin-bottom: 0.5rem; /* Отступ снизу */
+  line-height: 3rem; /* Высота строки */
 }
 
-.instructor,
-.duration,
-.slug {
-  color: #34495e;
+.description {
+  font-size: 1.4rem; /* Размер шрифта */
+  font-weight: normal; /* Обычный шрифт */
+  text-align: center; /* Выравниваем по центру */
+  color: #ffffff; /* Белый цвет текста */
+  margin-bottom: 0.5rem; /* Увеличенный отступ снизу */
+  line-height: 2rem; /* Высота строки */
+}
+
+.instructor {
+  font-size: 1.2rem; /* Размер шрифта */
+  font-weight: bold; /* Жирный шрифт */
+  text-align: center; /* Выравниваем по центру */
+  color: #ffffff; /* Белый цвет текста */
+  margin-bottom: 1rem; /* Отступ снизу */
+  line-height: 1.8rem; /* Высота строки */
+}
+
+.actionRow {
+  margin-top: auto; /* Перемещаем блок вниз */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detailButton {
+  background-color: #333333;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
   font-size: 1rem;
-  margin: 0.5rem 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.detailButton:hover {
+  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  background-color: #444444;
 }
 
 .iconGroup {
   display: flex;
-  justify-content: flex-start;
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: 0.5rem;
 }
 
 .iconButton {
-  color: #2c3e50 !important;
-  background-color: #ecf0f1 !important;
-  transition: all var(--card-transition) !important;
+  color: #fff !important;
+  background-color: #444 !important;
+  border-radius: 50% !important;
+  transition: all 0.3s ease !important;
 }
 
 .iconButton:hover {
-  background-color: #3498db !important;
-  color: #ffffff !important;
+  background-color: #555 !important;
+  color: #fff !important;
   transform: translateY(-3px);
-}
-
-@media (max-width: 768px) {
-  .productCard {
-    grid-template-columns: 1fr;
-    height: auto;
-  }
-
-  .imageContainer {
-    height: 200px;
-  }
-
-  .content {
-    padding: 1.5rem;
-  }
-
-  .title {
-    font-size: 1.5rem;
-  }
 }

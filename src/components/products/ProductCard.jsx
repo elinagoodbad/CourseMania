@@ -10,7 +10,7 @@ const ProductCard = ({ elem }) => {
   const { deleteProduct } = useProduct();
   const navigate = useNavigate();
 
-  const [title, instructor, description, price] = elem.title.split(" | ");
+  const [title, instructor, description] = elem.title.split(" | ");
 
   return (
     <div className={styles.productCard}>
@@ -19,24 +19,26 @@ const ProductCard = ({ elem }) => {
       </div>
       <div className={styles.content}>
         <h2 className={styles.title}>{title}</h2>
-        <p className={styles.instructor}>Instructor: {instructor}</p>
-        <p className={styles.description}>Description: {description}</p>
-        <p className={styles.price}>Price: {price}</p>
-        <div className={styles.iconGroup}>
-          <IconButton
-            className={styles.iconButton}
-            aria-label="edit"
-            onClick={() => navigate(`/edit/${elem.slug}`)}
-          >
-            <EditIcon />
-          </IconButton>
-          <IconButton
-            className={styles.iconButton}
-            aria-label="delete"
-            onClick={() => deleteProduct(elem.slug)}
-          >
-            <DeleteIcon />
-          </IconButton>
+        <p className={styles.description}>{description}</p>
+        <p className={styles.instructor}>Mentor: {instructor}</p>
+        <div className={styles.actionRow}>
+          <button className={styles.detailButton}>Подробнее</button>
+          <div className={styles.iconGroup}>
+            <IconButton
+              className={styles.iconButton}
+              aria-label="edit"
+              onClick={() => navigate(`/edit/${elem.slug}`)}
+            >
+              <EditIcon />
+            </IconButton>
+            <IconButton
+              className={styles.iconButton}
+              aria-label="delete"
+              onClick={() => deleteProduct(elem.slug)}
+            >
+              <DeleteIcon />
+            </IconButton>
+          </div>
         </div>
       </div>
     </div>

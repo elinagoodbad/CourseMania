@@ -1,3 +1,4 @@
+// context/ProductContextProvider.js
 import axios from "axios";
 import React, { createContext, useContext, useReducer } from "react";
 import { API } from "../helpers/const";
@@ -35,9 +36,7 @@ const ProductContextProvider = ({ children }) => {
   const getConfig = () => {
     const tokens = JSON.parse(localStorage.getItem("tokens")) || {};
     const Authorization = `Bearer ${tokens.access || ""}`;
-    return {
-      headers: { Authorization },
-    };
+    return tokens.access ? { headers: { Authorization } } : {};
   };
 
   //! add
@@ -54,11 +53,10 @@ const ProductContextProvider = ({ children }) => {
   const getProducts = async () => {
     try {
       const { data } = await axios.get(
-        `${API}/courses/${window.location.search}`,
-        getConfig()
+        `${API}/courses/${window.location.search}`
       );
-      const itemsPerPage = 3; // Количество товаров на странице
-      const totalPages = Math.ceil(data.count / itemsPerPage);
+      const itemsPerPage = 3;
+      const totalPages = Math.ceil(data.count / data.results.length);
       dispatch({
         type: "GET_PRODUCTS",
         payload: { products: data.results, pages: totalPages },
@@ -81,7 +79,7 @@ const ProductContextProvider = ({ children }) => {
   //! getOneProduct
   const getOneProduct = async (slug) => {
     try {
-      const { data } = await axios.get(`${API}/courses/${slug}/`, getConfig());
+      const { data } = await axios.get(`${API}/courses/${slug}/`);
       dispatch({
         type: "GET_ONE_PRODUCT",
         payload: data,

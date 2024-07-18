@@ -1,7 +1,7 @@
 .productList {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 40px 20px 60px; /* Updated padding */
 }
 
 .productList h1 {
@@ -13,16 +13,19 @@
 }
 
 .cardGrid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* Adjust card width as needed */
+  gap: 20px; /* Adjust gap between cards */
   justify-content: center;
-  gap: 30px;
 }
 
 .paginationWrapper {
   display: flex;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 10px;
 }
 
 /* Styling for react-bootstrap Pagination */
