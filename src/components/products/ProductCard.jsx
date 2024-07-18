@@ -22,24 +22,24 @@ const ProductCard = ({ elem }) => {
         <p className={styles.description}>{description}</p>
         <p className={styles.instructor}>Mentor: {instructor}</p>
         <div className={styles.actionRow}>
-          <button className={styles.detailButton}>Подробнее</button>
-          <div className={styles.iconGroup}>
-            <IconButton
-              className={styles.iconButton}
-              aria-label="edit"
-              onClick={() => navigate(`/edit/${elem.slug}`)}
-            >
-              <EditIcon />
-            </IconButton>
-            <IconButton
-              className={styles.iconButton}
-              aria-label="delete"
-              onClick={() => deleteProduct(elem.slug)}
-            >
-              <DeleteIcon />
-            </IconButton>
-          </div>
+          <button className={styles.detailButton}>Detail</button>
         </div>
+      </div>
+      <div className={styles.iconGroup}>
+        <IconButton
+          className={styles.iconButton}
+          aria-label="edit"
+          onClick={() => navigate(`/edit/${elem.slug}`)}
+        >
+          <EditIcon />
+        </IconButton>
+        <IconButton
+          className={styles.iconButton}
+          aria-label="delete"
+          onClick={() => deleteProduct(elem.slug)}
+        >
+          <DeleteIcon />
+        </IconButton>
       </div>
     </div>
   );
