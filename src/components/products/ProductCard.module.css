@@ -46,39 +46,39 @@
 
 .title {
   color: #ffffff;
-  font-size: 2.5rem; /* Увеличиваем размер шрифта */
-  font-weight: bold; /* Жирный шрифт */
-  text-align: center; /* Выравниваем по центру */
-  margin-bottom: 0.5rem; /* Отступ снизу */
-  line-height: 3rem; /* Высота строки */
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  line-height: 3rem;
 }
 
 .description {
-  font-size: 1.4rem; /* Размер шрифта */
-  font-weight: normal; /* Обычный шрифт */
-  text-align: center; /* Выравниваем по центру */
-  color: #ffffff; /* Белый цвет текста */
-  margin-bottom: 0.5rem; /* Увеличенный отступ снизу */
-  line-height: 2rem; /* Высота строки */
+  font-size: 1.4rem;
+  font-weight: normal;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  line-height: 2rem;
 }
 
 .instructor {
-  font-size: 1.2rem; /* Размер шрифта */
-  font-weight: bold; /* Жирный шрифт */
-  text-align: center; /* Выравниваем по центру */
-  color: #ffffff; /* Белый цвет текста */
-  margin-bottom: 1rem; /* Отступ снизу */
-  line-height: 1.8rem; /* Высота строки */
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  line-height: 1.8rem;
 }
 
 .actionRow {
-  margin-top: auto; /* Перемещаем блок вниз */
+  margin-top: auto;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
 }
 
 .detailButton {
+  width: 80%;
   background-color: #333333;
   color: #ffffff;
   border: none;
@@ -86,6 +86,7 @@
   border-radius: 1.5rem;
   cursor: pointer;
   font-size: 1rem;
+  font-weight: bold;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
 }
@@ -97,6 +98,9 @@
 }
 
 .iconGroup {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
   display: flex;
   gap: 0.5rem;
 }
@@ -106,10 +110,15 @@
   background-color: #444 !important;
   border-radius: 50% !important;
   transition: all 0.3s ease !important;
+  padding: 0.25rem !important;
 }
 
 .iconButton:hover {
   background-color: #555 !important;
   color: #fff !important;
   transform: translateY(-3px);
+}
+
+.icon {
+  font-size: 1.5rem !important;
 }
