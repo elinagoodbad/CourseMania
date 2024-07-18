@@ -55,7 +55,6 @@ const ProductContextProvider = ({ children }) => {
       const { data } = await axios.get(
         `${API}/courses/${window.location.search}`
       );
-      const itemsPerPage = 3;
       const totalPages = Math.ceil(data.count / data.results.length);
       dispatch({
         type: "GET_PRODUCTS",
