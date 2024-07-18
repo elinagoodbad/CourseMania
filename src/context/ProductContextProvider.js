@@ -1,4 +1,3 @@
-// context/ProductContextProvider.js
 import axios from "axios";
 import React, { createContext, useContext, useReducer } from "react";
 import { API } from "../helpers/const";
