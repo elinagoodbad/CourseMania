@@ -9,7 +9,7 @@
   font-size: 5rem;
   font-weight: 700;
   margin-top: -50px;
-  margin-bottom: px;
+  margin-bottom: -1px;
   text-align: center;
 }
 
@@ -17,7 +17,7 @@
   position: relative;
   width: 100%;
   max-width: 500px;
-  margin: 0 auto 5px;
+  margin: 0 auto 8px;
 }
 
 .searchInput {
