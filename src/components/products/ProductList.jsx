@@ -4,15 +4,17 @@ import ProductCard from "./ProductCard";
 import styles from "./ProductList.module.css";
 import { useSearchParams } from "react-router-dom";
 import { Pagination } from "react-bootstrap";
+import SearchIcon from "@mui/icons-material/Search";
 
 const ProductList = () => {
   const { products, getProducts, pages } = useProduct();
   const [currentPage, setCurrentPage] = useState(1);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    getProducts();
-  }, [searchParams]);
+    getProducts(searchQuery);
+  }, [searchParams, searchQuery]);
 
   useEffect(() => {
     setSearchParams({ page: currentPage });
@@ -29,9 +31,26 @@ const ProductList = () => {
   if (currentPage < 1) setCurrentPage(1);
   if (currentPage > pages) setCurrentPage(pages);
 
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
   return (
     <div className={styles.productList}>
       <h1>Our Courses</h1>
+      <div className={styles.searchInputContainer}>
+        <SearchIcon
+          className={styles.searchIcon}
+          style={{ fontSize: "1.2rem" }}
+        />
+        <input
+          type="text"
+          placeholder="Search courses..."
+          value={searchQuery}
+          onChange={handleSearch}
+          className={styles.searchInput}
+        />
+      </div>
       <div className={styles.cardGrid}>
         {products.map((elem) => (
           <ProductCard key={elem.slug} elem={elem} />

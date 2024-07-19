@@ -49,10 +49,10 @@ const ProductContextProvider = ({ children }) => {
   };
 
   //! get
-  const getProducts = async () => {
+  const getProducts = async (searchQuery = "") => {
     try {
       const { data } = await axios.get(
-        `${API}/courses/${window.location.search}`
+        `${API}/courses/${window.location.search}&search=${searchQuery}`
       );
       const totalPages = Math.ceil(data.count / data.results.length);
       dispatch({

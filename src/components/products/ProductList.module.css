@@ -8,15 +8,55 @@
   color: #ffffff;
   font-size: 5rem;
   font-weight: 700;
-  margin-top: -40px;
-  margin-bottom: 10px;
+  margin-top: -50px;
+  margin-bottom: px;
   text-align: center;
+}
+
+.searchInputContainer {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 5px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.5rem 0.75rem 0.5rem 2.5rem;
+  border-radius: 0.8rem;
+  border: 1px solid #333333;
+  background-color: #1e1e1e;
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  height: 35px;
+  line-height: 40px;
+}
+
+.searchInput::placeholder {
+  color: #888;
+}
+
+.searchInput:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  left: 0.75rem;
+  transform: translateY(-50%);
+  color: #9e9e9e;
+  pointer-events: none;
+  font-size: 1.2rem;
 }
 
 .cardGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 10px 0;
+  gap: 5px 0;
   justify-content: center;
 }
 
