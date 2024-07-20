@@ -1,5 +1,5 @@
 .productList {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 40px 20px 60px;
 }
@@ -9,7 +9,7 @@
   font-size: 5rem;
   font-weight: 700;
   margin-top: -50px;
-  margin-bottom: -1px;
+  margin-bottom: 0px;
   text-align: center;
 }
 
@@ -17,7 +17,7 @@
   position: relative;
   width: 100%;
   max-width: 500px;
-  margin: 0 auto 8px;
+  margin: 0 auto 20px;
 }
 
 .searchInput {
@@ -55,40 +55,58 @@
 
 .cardGrid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 5px 0;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px 15px;
   justify-content: center;
 }
 
-.paginationWrapper {
+.categoryButtons {
   display: flex;
   justify-content: center;
-  margin-top: 15px;
+  padding-bottom: 20px;
 }
 
-:global(.pagination) {
-  margin-bottom: 0;
+.categoryButton {
+  background-color: transparent;
+  color: #9e9e9e;
+  border: none;
+  padding: 5px 45px;
+  margin-top: -20px;
+  margin-bottom: -15px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  position: relative;
+  text-transform: capitalize;
 }
 
-:global(.page-item .page-link) {
-  background-color: #333;
-  border-color: #444;
+.categoryButton::after {
+  content: "";
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+  width: 60%;
+  height: 2px;
+  background-color: transparent;
+  transition: all 0.2s ease;
+  transform: translateX(-50%);
+}
+
+.categoryButton:hover {
   color: #fff;
 }
 
-:global(.page-item.active .page-link) {
-  background-color: #007bff;
-  border-color: #007bff;
-}
-
-:global(.page-link:hover) {
-  background-color: #444;
-  border-color: #555;
+.categoryButton.active {
   color: #fff;
 }
 
-:global(.page-item.disabled .page-link) {
-  background-color: #222;
-  border-color: #333;
-  color: #666;
+.categoryButton.active::after {
+  background-color: #fff;
+}
+
+@media (max-width: 768px) {
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
 }

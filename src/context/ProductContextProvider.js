@@ -4,13 +4,13 @@ import { API } from "../helpers/const";
 import { useNavigate } from "react-router-dom";
 
 const productContext = createContext();
+
 export const useProduct = () => useContext(productContext);
 
 const ProductContextProvider = ({ children }) => {
   const INIT_STATE = {
     products: [],
     oneProduct: {},
-    pages: 1,
   };
 
   const reducer = (state = INIT_STATE, action) => {
@@ -18,8 +18,7 @@ const ProductContextProvider = ({ children }) => {
       case "GET_PRODUCTS":
         return {
           ...state,
-          products: action.payload.products,
-          pages: action.payload.pages,
+          products: action.payload,
         };
       case "GET_ONE_PRODUCT":
         return { ...state, oneProduct: action.payload };
@@ -61,13 +60,16 @@ const ProductContextProvider = ({ children }) => {
   //! get
   const getProducts = async (searchQuery = "") => {
     try {
-      const { data } = await axios.get(
-        `${API}/courses/${window.location.search}&search=${searchQuery}`
-      );
-      const totalPages = Math.ceil(data.count / data.results.length);
+      let allProducts = [];
+      let nextPage = `${API}/courses/?search=${searchQuery}`;
+      while (nextPage) {
+        const { data } = await axios.get(nextPage);
+        allProducts = [...allProducts, ...data.results];
+        nextPage = data.next;
+      }
       dispatch({
         type: "GET_PRODUCTS",
-        payload: { products: data.results, pages: totalPages },
+        payload: allProducts,
       });
     } catch (error) {
       console.log(error);
@@ -115,7 +117,6 @@ const ProductContextProvider = ({ children }) => {
     editProduct,
     products: state.products,
     oneProduct: state.oneProduct,
-    pages: state.pages,
     addProject,
   };
 
