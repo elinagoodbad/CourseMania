@@ -15,6 +15,7 @@ import FavoritesPage from "../pages/FavoritesPage";
 import ProductList from "../components/products/ProductList";
 import AddCourse from "../components/products/AddCourse";
 import EditCourse from "../components/products/EditCourse";
+import AddProject from "../components/products/AddProject";
 
 const MainRoutes = () => {
   return (
@@ -34,6 +35,7 @@ const MainRoutes = () => {
       <Route path="/addCourse" element={<AddCourse />} />
       <Route path="/edit/:slug" element={<EditCourse />} />
       <Route path="/productList" element={<ProductList />} />
+      <Route path="/addProject" element={<AddProject />} />
     </Routes>
   );
 };

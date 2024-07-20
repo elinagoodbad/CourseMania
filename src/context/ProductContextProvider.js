@@ -48,6 +48,16 @@ const ProductContextProvider = ({ children }) => {
     }
   };
 
+  //! addProject
+  const addProject = async (formData) => {
+    try {
+      await axios.post(`${API}/projects/`, formData, getConfig());
+      navigate("/courses");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   //! get
   const getProducts = async (searchQuery = "") => {
     try {
@@ -89,8 +99,12 @@ const ProductContextProvider = ({ children }) => {
 
   //! edit
   const editProduct = async (slug, editedProduct) => {
-    await axios.patch(`${API}/courses/${slug}/`, editedProduct, getConfig());
-    navigate("/courses");
+    try {
+      await axios.patch(`${API}/courses/${slug}/`, editedProduct, getConfig());
+      navigate("/courses");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const values = {
@@ -102,6 +116,7 @@ const ProductContextProvider = ({ children }) => {
     products: state.products,
     oneProduct: state.oneProduct,
     pages: state.pages,
+    addProject,
   };
 
   return (
