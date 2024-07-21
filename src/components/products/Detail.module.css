@@ -1,5 +1,8 @@
 .modal {
-  margin-top: 3.5rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,23 +11,41 @@
   border-radius: 1rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   background-color: #121212;
-  position: relative;
-  overflow: hidden;
-  width: 100%;
+  overflow: auto;
+  width: 90%;
   max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
+  max-height: 90vh;
   color: #fff;
-  text-align: left;
+}
+
+.titleContainer {
+  width: 100%;
+  margin-top: -1.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
 }
 
 .title {
-  font-size: 3rem !important;
+  font-size: 2.5rem !important;
   font-weight: 800 !important;
+  line-height: 1;
+  margin: 0 !important;
+  margin-left: 2rem !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  line-height: 1.2;
-  margin-top: -1.8rem !important;
-  margin-bottom: 0.5rem !important;
+}
+
+.favoriteButton {
+  color: #ffffff !important;
+  padding: 0 0 0 0.5rem !important;
+  margin-top: 0.5rem !important;
+}
+
+.favoriteButton svg {
+  font-size: 2.5rem !important;
 }
 
 .imageContainer {
@@ -59,13 +80,13 @@
 
 .description {
   line-height: 1.6;
-  font-size: 2rem !important;
+  font-size: 1.8rem !important;
   font-weight: 800 !important;
 }
 
 .price {
   margin-bottom: 2rem;
-  font-size: 2rem !important;
+  font-size: 1.5rem !important;
   font-weight: 700 !important;
 }
 

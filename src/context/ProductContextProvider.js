@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer, useEffect } from "react";
 import { API } from "../helpers/const";
 import { useNavigate } from "react-router-dom";
 
@@ -11,6 +11,7 @@ const ProductContextProvider = ({ children }) => {
   const INIT_STATE = {
     products: [],
     oneProduct: {},
+    favorites: [],
   };
 
   const reducer = (state = INIT_STATE, action) => {
@@ -22,6 +23,8 @@ const ProductContextProvider = ({ children }) => {
         };
       case "GET_ONE_PRODUCT":
         return { ...state, oneProduct: action.payload };
+      case "SET_FAVORITES":
+        return { ...state, favorites: action.payload };
       default:
         return state;
     }
@@ -29,6 +32,11 @@ const ProductContextProvider = ({ children }) => {
 
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    dispatch({ type: "SET_FAVORITES", payload: storedFavorites });
+  }, []);
 
   //! getConfig
   const getConfig = () => {
@@ -109,6 +117,28 @@ const ProductContextProvider = ({ children }) => {
     }
   };
 
+  // Новые функции для управления избранными элементами
+  const addToFavorites = (product) => {
+    const updatedFavorites = [...state.favorites, product];
+    dispatch({ type: "SET_FAVORITES", payload: updatedFavorites });
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+  };
+
+  const removeFromFavorites = (slug) => {
+    const updatedFavorites = state.favorites.filter((fav) => fav.slug !== slug);
+    dispatch({ type: "SET_FAVORITES", payload: updatedFavorites });
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+  };
+
+  const toggleFavorite = (product) => {
+    const isFavorite = state.favorites.some((fav) => fav.slug === product.slug);
+    if (isFavorite) {
+      removeFromFavorites(product.slug);
+    } else {
+      addToFavorites(product);
+    }
+  };
+
   const values = {
     addProduct,
     getProducts,
@@ -118,6 +148,10 @@ const ProductContextProvider = ({ children }) => {
     products: state.products,
     oneProduct: state.oneProduct,
     addProject,
+    favorites: state.favorites,
+    toggleFavorite,
+    addToFavorites,
+    removeFromFavorites,
   };
 
   return (
