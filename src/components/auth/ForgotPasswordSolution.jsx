@@ -40,65 +40,68 @@ const ForgotPasswordSolution = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.header}>Forgot Password Solution</h1>
-      <p className={styles.text}>
-        If you have received a password reset link, please follow the
-        instructions in the email.
-      </p>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        className={styles.input}
-      />
-      <div className={styles.passwordContainer}>
+    <div>
+      <div className={styles.backgroundWrapper}></div>
+      <div className={styles.container}>
+        <h1 className={styles.header}>Forgot Password Solution</h1>
+        <p className={styles.text}>
+          If you have received a password reset link, please follow the
+          instructions in the email.
+        </p>
         <input
-          type={showPassword ? "text" : "password"}
-          placeholder="New Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           className={styles.input}
         />
-        <span
-          className={styles.passwordIcon}
-          onClick={() => setShowPassword(!showPassword)}
-        >
-          {showPassword ? <VisibilityOff /> : <Visibility />}
-        </span>
-      </div>
-      <div className={styles.passwordContainer}>
+        <div className={styles.passwordContainer}>
+          <input
+            type={showPassword ? "text" : "password"}
+            placeholder="New Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className={styles.input}
+          />
+          <span
+            className={styles.passwordIcon}
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? <VisibilityOff /> : <Visibility />}
+          </span>
+        </div>
+        <div className={styles.passwordContainer}>
+          <input
+            type={showPasswordConfirm ? "text" : "password"}
+            placeholder="Confirm New Password"
+            value={passwordConfirm}
+            onChange={(e) => setPasswordConfirm(e.target.value)}
+            className={styles.input}
+          />
+          <span
+            className={styles.passwordIcon}
+            onClick={() => setShowPasswordConfirm(!showPasswordConfirm)}
+          >
+            {showPasswordConfirm ? <VisibilityOff /> : <Visibility />}
+          </span>
+        </div>
         <input
-          type={showPasswordConfirm ? "text" : "password"}
-          placeholder="Confirm New Password"
-          value={passwordConfirm}
-          onChange={(e) => setPasswordConfirm(e.target.value)}
+          type="text"
+          placeholder="Verification Code"
+          value={code}
+          onChange={(e) => setCode(e.target.value)}
           className={styles.input}
         />
-        <span
-          className={styles.passwordIcon}
-          onClick={() => setShowPasswordConfirm(!showPasswordConfirm)}
-        >
-          {showPasswordConfirm ? <VisibilityOff /> : <Visibility />}
-        </span>
+        <button onClick={handleSubmit} className={styles.button}>
+          Submit
+        </button>
+        <p className={`${styles.linkText} ${styles.backToLogin}`}>
+          Back to Login?{" "}
+          <Link to="/login" className={styles.link}>
+            Login
+          </Link>
+        </p>
       </div>
-      <input
-        type="text"
-        placeholder="Verification Code"
-        value={code}
-        onChange={(e) => setCode(e.target.value)}
-        className={styles.input}
-      />
-      <button onClick={handleSubmit} className={styles.button}>
-        Submit
-      </button>
-      <p className={`${styles.linkText} ${styles.backToLogin}`}>
-        Back to Login?{" "}
-        <Link to="/login" className={styles.link}>
-          Login
-        </Link>
-      </p>
     </div>
   );
 };

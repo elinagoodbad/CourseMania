@@ -26,83 +26,86 @@ const AddCourse = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.header}>Add Course</h1>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <div className={styles.columnContainer}>
-          <div className={styles.column}>
-            <input
-              type="text"
-              placeholder="Slug"
-              value={slug}
-              onChange={(e) => setSlug(e.target.value)}
-              className={styles.input}
-              required
-            />
-            <input
-              type="text"
-              placeholder="Course Name"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              className={styles.input}
-              required
-            />
-            <input
-              type="text"
-              placeholder="Instructor"
-              value={instructor}
-              onChange={(e) => setInstructor(e.target.value)}
-              className={styles.input}
-              required
-            />
-            <input
-              type="text"
-              placeholder="Description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              className={styles.input}
-              required
-            />
-          </div>
-          <div className={styles.column}>
-            <input
-              type="number"
-              placeholder="Price"
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-              className={styles.input}
-              required
-            />
-            <div className={styles.fileInputContainer}>
+    <div>
+      <div className={styles.backgroundWrapper}></div>
+      <div className={styles.container}>
+        <h1 className={styles.header}>Add Course</h1>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <div className={styles.columnContainer}>
+            <div className={styles.column}>
               <input
-                type="file"
-                accept="image/*"
-                id="imageLight"
-                onChange={(e) => setImageLight(e.target.files[0])}
-                className={styles.fileInput}
+                type="text"
+                placeholder="Slug"
+                value={slug}
+                onChange={(e) => setSlug(e.target.value)}
+                className={styles.input}
+                required
               />
-              <label htmlFor="imageLight" className={styles.fileInputLabel}>
-                Choose Light Image
-              </label>
-            </div>
-            <div className={styles.fileInputContainer}>
               <input
-                type="file"
-                accept="image/*"
-                id="imageDark"
-                onChange={(e) => setImageDark(e.target.files[0])}
-                className={styles.fileInput}
+                type="text"
+                placeholder="Course Name"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                className={styles.input}
+                required
               />
-              <label htmlFor="imageDark" className={styles.fileInputLabel}>
-                Choose Dark Image
-              </label>
+              <input
+                type="text"
+                placeholder="Instructor"
+                value={instructor}
+                onChange={(e) => setInstructor(e.target.value)}
+                className={styles.input}
+                required
+              />
+              <input
+                type="text"
+                placeholder="Description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                className={styles.input}
+                required
+              />
+            </div>
+            <div className={styles.column}>
+              <input
+                type="number"
+                placeholder="Price"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+                className={styles.input}
+                required
+              />
+              <div className={styles.fileInputContainer}>
+                <input
+                  type="file"
+                  accept="image/*"
+                  id="imageLight"
+                  onChange={(e) => setImageLight(e.target.files[0])}
+                  className={styles.fileInput}
+                />
+                <label htmlFor="imageLight" className={styles.fileInputLabel}>
+                  Choose Light Image
+                </label>
+              </div>
+              <div className={styles.fileInputContainer}>
+                <input
+                  type="file"
+                  accept="image/*"
+                  id="imageDark"
+                  onChange={(e) => setImageDark(e.target.files[0])}
+                  className={styles.fileInput}
+                />
+                <label htmlFor="imageDark" className={styles.fileInputLabel}>
+                  Choose Dark Image
+                </label>
+              </div>
             </div>
           </div>
-        </div>
-        <button type="submit" className={styles.button}>
-          Add Course
-        </button>
-      </form>
+          <button type="submit" className={styles.button}>
+            Add Course
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

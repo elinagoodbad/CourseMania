@@ -21,25 +21,28 @@ const Activate = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.header}>Activate Your Account</h1>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        className={styles.input}
-      />
-      <input
-        type="text"
-        placeholder="Activation Code"
-        value={code}
-        onChange={(e) => setCode(e.target.value)}
-        className={styles.input}
-      />
-      <button onClick={handleSave} className={styles.button}>
-        Activate
-      </button>
+    <div>
+      <div className={styles.backgroundWrapper}></div>
+      <div className={styles.container}>
+        <h1 className={styles.header}>Activate Your Account</h1>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className={styles.input}
+        />
+        <input
+          type="text"
+          placeholder="Activation Code"
+          value={code}
+          onChange={(e) => setCode(e.target.value)}
+          className={styles.input}
+        />
+        <button onClick={handleSave} className={styles.button}>
+          Activate
+        </button>
+      </div>
     </div>
   );
 };

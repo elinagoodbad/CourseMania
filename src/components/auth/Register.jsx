@@ -39,57 +39,60 @@ const Register = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.header}>Register</h1>
-      <input
-        onChange={(e) => setName(e.target.value)}
-        type="text"
-        placeholder="Name"
-        className={styles.input}
-      />
-      <input
-        onChange={(e) => setEmail(e.target.value)}
-        type="text"
-        placeholder="Email"
-        className={styles.input}
-      />
-      <div className={styles.passwordContainer}>
+    <div>
+      <div className={styles.backgroundWrapper}></div>
+      <div className={styles.container}>
+        <h1 className={styles.header}>Register</h1>
         <input
-          onChange={(e) => setPassword(e.target.value)}
-          type={showPassword ? "text" : "password"}
-          placeholder="Password"
+          onChange={(e) => setName(e.target.value)}
+          type="text"
+          placeholder="Name"
           className={styles.input}
         />
-        <span
-          className={styles.passwordIcon}
-          onClick={() => setShowPassword(!showPassword)}
-        >
-          {showPassword ? <VisibilityOff /> : <Visibility />}
-        </span>
-      </div>
-      <div className={styles.passwordContainer}>
         <input
-          onChange={(e) => setPasswordConfirm(e.target.value)}
-          type={showPasswordConfirm ? "text" : "password"}
-          placeholder="Confirm Password"
+          onChange={(e) => setEmail(e.target.value)}
+          type="text"
+          placeholder="Email"
           className={styles.input}
         />
-        <span
-          className={styles.passwordIcon}
-          onClick={() => setShowPasswordConfirm(!showPasswordConfirm)}
-        >
-          {showPasswordConfirm ? <VisibilityOff /> : <Visibility />}
-        </span>
+        <div className={styles.passwordContainer}>
+          <input
+            onChange={(e) => setPassword(e.target.value)}
+            type={showPassword ? "text" : "password"}
+            placeholder="Password"
+            className={styles.input}
+          />
+          <span
+            className={styles.passwordIcon}
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? <VisibilityOff /> : <Visibility />}
+          </span>
+        </div>
+        <div className={styles.passwordContainer}>
+          <input
+            onChange={(e) => setPasswordConfirm(e.target.value)}
+            type={showPasswordConfirm ? "text" : "password"}
+            placeholder="Confirm Password"
+            className={styles.input}
+          />
+          <span
+            className={styles.passwordIcon}
+            onClick={() => setShowPasswordConfirm(!showPasswordConfirm)}
+          >
+            {showPasswordConfirm ? <VisibilityOff /> : <Visibility />}
+          </span>
+        </div>
+        <button onClick={handleSave} className={styles.button}>
+          Register
+        </button>
+        <p className={styles.linkText}>
+          Already have an account?{" "}
+          <Link to="/login" className={styles.link}>
+            Login
+          </Link>
+        </p>
       </div>
-      <button onClick={handleSave} className={styles.button}>
-        Register
-      </button>
-      <p className={styles.linkText}>
-        Already have an account?{" "}
-        <Link to="/login" className={styles.link}>
-          Login
-        </Link>
-      </p>
     </div>
   );
 };
