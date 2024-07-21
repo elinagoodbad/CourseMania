@@ -11,16 +11,13 @@ const ProductContextProvider = ({ children }) => {
   const INIT_STATE = {
     products: [],
     oneProduct: {},
-    favorites: [],
+    favorites: JSON.parse(localStorage.getItem("favorites")) || [],
   };
 
   const reducer = (state = INIT_STATE, action) => {
     switch (action.type) {
       case "GET_PRODUCTS":
-        return {
-          ...state,
-          products: action.payload,
-        };
+        return { ...state, products: action.payload };
       case "GET_ONE_PRODUCT":
         return { ...state, oneProduct: action.payload };
       case "SET_FAVORITES":
@@ -32,11 +29,6 @@ const ProductContextProvider = ({ children }) => {
 
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    dispatch({ type: "SET_FAVORITES", payload: storedFavorites });
-  }, []);
 
   //! getConfig
   const getConfig = () => {
@@ -117,26 +109,18 @@ const ProductContextProvider = ({ children }) => {
     }
   };
 
-  // Новые функции для управления избранными элементами
-  const addToFavorites = (product) => {
-    const updatedFavorites = [...state.favorites, product];
-    dispatch({ type: "SET_FAVORITES", payload: updatedFavorites });
-    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
-  };
-
-  const removeFromFavorites = (slug) => {
-    const updatedFavorites = state.favorites.filter((fav) => fav.slug !== slug);
-    dispatch({ type: "SET_FAVORITES", payload: updatedFavorites });
-    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
-  };
-
+  // ! favorites
   const toggleFavorite = (product) => {
-    const isFavorite = state.favorites.some((fav) => fav.slug === product.slug);
-    if (isFavorite) {
-      removeFromFavorites(product.slug);
-    } else {
-      addToFavorites(product);
-    }
+    //* Используем тернарный оператор для добавления или удаления из избранного
+    const updatedFavorites = !state.favorites.some(
+      (fav) => fav.slug === product.slug
+    )
+      ? [...state.favorites, product] //* Добавляем продукт
+      : state.favorites.filter((fav) => fav.slug !== product.slug); //* Удаляем продукт
+
+    //* Обновляем состояние и localStorage
+    dispatch({ type: "SET_FAVORITES", payload: updatedFavorites });
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
   };
 
   const values = {
@@ -148,10 +132,8 @@ const ProductContextProvider = ({ children }) => {
     products: state.products,
     oneProduct: state.oneProduct,
     addProject,
-    favorites: state.favorites,
     toggleFavorite,
-    addToFavorites,
-    removeFromFavorites,
+    favorites: state.favorites,
   };
 
   return (

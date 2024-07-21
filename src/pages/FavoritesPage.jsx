@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ProductCard from "../components/products/ProductCard";
 import styles from "./FavoritesPage.module.css";
 import SearchIcon from "@mui/icons-material/Search";
@@ -11,9 +11,7 @@ const FavoritesPage = () => {
   const [selectedElem, setSelectedElem] = useState(null);
   const [isDetailOpen, setIsDetailOpen] = useState(false);
 
-  const handleSearch = (e) => {
-    setSearchQuery(e.target.value);
-  };
+  const handleSearch = (e) => setSearchQuery(e.target.value);
 
   const filteredFavorites = favorites.filter((favorite) =>
     favorite.title.toLowerCase().includes(searchQuery.toLowerCase())
