@@ -1,80 +1,90 @@
 import React from "react";
-import styles from "./Footer.module.css";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import YouTubeIcon from "@mui/icons-material/YouTube";
-import SvgIcon from "@mui/material/SvgIcon";
-import PhoneIcon from "@mui/icons-material/Phone";
-import TelegramIcon from "@mui/icons-material/Telegram";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import EmailIcon from "@mui/icons-material/Email";
-
-const TikTokIcon = (props) => (
-  <SvgIcon {...props}>
-    <path d="M9 3v18c0 .6.4 1 1 1h4c.6 0 1-.4 1-1V3h-6zM6.5 4.5v15h-3v-15h3zM15 6v16.5h-3V6h3zM12 1v2h-1V1h1zM5.5 1v2h-1V1h1zM15.5 1v2h-1V1h1zM12 20v2h-1v-2h1zM5.5 20v2h-1v-2h1zM15.5 20v2h-1v-2h1z" />
-  </SvgIcon>
-);
+import styles from "./Footer.module.css"; // Import the CSS module
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faInstagram,
+  faYoutube,
+  faTelegram,
+} from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        <div className={styles.column}>
-          <h4>О нас</h4>
-          <ul>
-            <li>Курсы</li>
-            <li>Полезное</li>
-            <li>Отзывы</li>
-          </ul>
+        <div className={styles.footerTop}>
+          <div className={styles.footerLogo}>
+            <img
+              src="https://static.tildacdn.com/tild6562-3333-4134-b638-356237333662/logo_vector.svg"
+              alt="uSkillz Logo"
+              className={styles.logoImage}
+            />
+            <p className={styles.logoText}>uSkillz</p>
+          </div>
+          <div className={styles.footerLinks}>
+            <h4 className={styles.footerTitle}>Navigation</h4>
+            <ul className={styles.footerList}>
+              <li>
+                <a href="#">About Us</a>
+              </li>
+              <li>
+                <a href="#">Services</a>
+              </li>
+              <li>
+                <a href="#">Courses</a>
+              </li>
+              <li>
+                <a href="#">Blog</a>
+              </li>
+            </ul>
+          </div>
+          <div className={styles.footerContact}>
+            <h4 className={styles.footerTitle}>Contacts</h4>
+            <ul className={styles.footerList}>
+              <li>
+                <i className="fa fa-map-marker"></i> Kyrgyzstan, Bishkek
+              </li>
+              <li>
+                <i className="fa fa-phone"></i> +996 554 201 506
+              </li>
+              <li>
+                <i className="fa fa-envelope"></i> info@uskillz.online
+              </li>
+            </ul>
+          </div>
+          <div className={styles.footerSocial}>
+            <h4 className={styles.footerTitle}>Social Media</h4>
+            <div className={styles.socialIcons}>
+              <a href="https://www.facebook.com/uskillz.online">
+                <FontAwesomeIcon icon={faFacebook} />
+              </a>
+              <a href="https://www.instagram.com/uskillz.online">
+                <FontAwesomeIcon icon={faInstagram} />
+              </a>
+              <a href="https://www.youtube.com/channel/UCMOANSqh_IfUFCZ2bo1z3Bg">
+                <FontAwesomeIcon icon={faYoutube} />
+              </a>
+              <a href="https://t.me/uskillz_online">
+                <FontAwesomeIcon icon={faTelegram} />
+              </a>
+            </div>
+          </div>
         </div>
-        <div className={styles.column}>
-          <h4>Social</h4>
-          <ul className={styles.social}>
-            <li>
-              <InstagramIcon className={styles.icon} /> Instagram
-            </li>
-            <li>
-              <TikTokIcon className={styles.icon} /> TikTok
-            </li>
-            <li>
-              <YouTubeIcon className={styles.icon} /> YouTube
-            </li>
-          </ul>
+        <div className={styles.footerAccount}>
+          <button className={styles.accountButton}>Account</button>
         </div>
-        <div className={styles.column}>
-          <h4>Контакты</h4>
-          <ul>
-            <li>
-              <PhoneIcon className={styles.icon} /> +996 554 201 506
-            </li>
-            <li>
-              <TelegramIcon className={styles.icon} /> Telegram
-            </li>
-            <li>
-              <WhatsAppIcon className={styles.icon} /> WhatsApp
-            </li>
-            <li>
-              <EmailIcon className={styles.icon} /> u.skillz.edu@gmail.com
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div className={styles.bottom}>
-        <div className={styles.left}>
-          <span>
-            © 2023 | ОсОО «U!SkillZ» | Все права защищены. Копирование
-            материалов запрещено.
-          </span>
-          <span>Политика конфиденциальности</span>
-          <span>Договор оферты</span>
-        </div>
-        <div className={styles.right}>
-          <img src="visa-logo.png" alt="Visa" className={styles.logo} />
+        <div className={styles.paymentIcons}>
           <img
-            src="mastercard-logo.png"
-            alt="Mastercard"
-            className={styles.logo}
+            src="https://media.licdn.com/dms/image/C4D12AQHlVmYMucjSIA/article-cover_image-shrink_720_1280/0/1628177193073?e=2147483647&v=beta&t=peBfQFzZfheBlCxcnCmkAm4N_uYK5nSd7cPf7OdaGo8"
+            alt="Visa"
           />
-          <button className={styles.button}>Личный кабинет</button>
+          <img
+            src="https://www.svgrepo.com/show/362015/mastercard-3.svg"
+            alt="MasterCard"
+          />
+        </div>
+        <div className={styles.footerBottom}>
+          <p>{new Date().getFullYear()} uSkillz. All rights reserved.</p>
         </div>
       </div>
     </footer>
@@ -82,3 +92,4 @@ const Footer = () => {
 };
 
 export default Footer;
+ы;

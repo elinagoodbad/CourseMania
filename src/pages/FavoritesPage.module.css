@@ -1,0 +1,33 @@
+.container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.heading {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.listItem {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+}
+
+.itemName {
+  font-size: 1.5rem;
+  color: #0073e6;
+}
+
+.itemDescription {
+  font-size: 1rem;
+  color: #555;
+}
