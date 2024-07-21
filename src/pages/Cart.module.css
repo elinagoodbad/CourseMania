@@ -1,16 +1,12 @@
+.blackBackground {
+  background-color: #000000;
+  min-height: 100vh;
+}
+
 .cartContainer {
   max-width: 1400px;
   margin: 0 auto;
-  margin-top: -70px;
   padding: 20px 20px 60px;
-}
-
-.cartTitle {
-  color: #ffffff;
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  text-align: center;
 }
 
 .cartGrid {
@@ -25,6 +21,7 @@
   background-color: #121212;
   border-radius: 1rem;
   padding: 1.4rem;
+  margin-top: 15px;
   color: #fff;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   position: relative;
@@ -77,21 +74,23 @@
 }
 
 .instructor {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
   color: #ffffff;
   margin-bottom: 0.5rem;
 }
 
 .description {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
   color: #ffffff;
   margin-bottom: 0.5rem;
   line-height: 1.4;
 }
 
 .price {
-  font-size: 1.3rem;
-  font-weight: normal;
+  font-size: 1.5rem;
+  font-weight: bold;
   color: #ffffff;
   margin-bottom: 0.5rem;
 }
@@ -105,12 +104,14 @@
 
 .countContainer label {
   margin-right: 0.5rem;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
   color: #ffffff;
 }
 
 .countInput {
-  width: 80px;
+  width: 65px;
+  text-align: center;
   padding: 0.3rem;
   border-radius: 0.3rem;
   border: 1px solid #333333;
@@ -148,8 +149,8 @@
 
 .buyButton {
   display: block !important;
-  margin: 20px auto 0 !important;
-  background-color: #000000 !important;
+  margin: 15px auto 0 !important;
+  background-color: #333333 !important;
   color: #ffffff !important;
   font-weight: 600 !important;
   padding: 12px 24px !important;
@@ -160,5 +161,5 @@
 }
 
 .buyButton:hover {
-  background-color: #333333 !important;
+  background-color: #4a4a4a !important;
 }
