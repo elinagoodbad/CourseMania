@@ -1,0 +1,164 @@
+.cartContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  margin-top: -70px;
+  padding: 20px 20px 60px;
+}
+
+.cartTitle {
+  color: #ffffff;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.cartGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.cartCard {
+  display: flex;
+  flex-direction: column;
+  background-color: #121212;
+  border-radius: 1rem;
+  padding: 1.4rem;
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  height: auto;
+}
+
+.cartCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.imageContainer {
+  height: 180px;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.imageContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.cartCard:hover .imageContainer img {
+  transform: scale(1.05);
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  line-height: 1.8rem;
+}
+
+.instructor {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.price {
+  font-size: 1.3rem;
+  font-weight: normal;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.countContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  justify-content: center;
+}
+
+.countContainer label {
+  margin-right: 0.5rem;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.countInput {
+  width: 80px;
+  padding: 0.3rem;
+  border-radius: 0.3rem;
+  border: 1px solid #333333;
+  background-color: #1e1e1e;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.subPrice {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 0.9rem;
+}
+
+.removeButton {
+  background-color: #333333 !important;
+  color: #ffffff !important;
+  border: none;
+  padding: 0.7rem 1.4rem !important;
+  border-radius: 1.5rem !important;
+  cursor: pointer;
+  font-size: 1rem !important;
+  font-weight: bold !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1) !important;
+  align-self: center;
+}
+
+.removeButton:hover {
+  background-color: #d32f2f !important;
+  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.15) !important;
+  transform: translateY(-2px);
+}
+
+.buyButton {
+  display: block !important;
+  margin: 20px auto 0 !important;
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  padding: 12px 24px !important;
+  text-transform: uppercase !important;
+  border-radius: 6px !important;
+  font-size: 1rem !important;
+  transition: background-color 0.3s ease !important;
+}
+
+.buyButton:hover {
+  background-color: #333333 !important;
+}

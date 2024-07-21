@@ -4,15 +4,19 @@ import BookmarkIcon from "@mui/icons-material/Bookmark";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import styles from "./Detail.module.css";
 import { useProduct } from "../../context/ProductContextProvider";
+import { useCart } from "../../context/CartContextProvider";
 
 const Detail = ({ elem, open, handleClose }) => {
   const [courseName, instructor, description, price] = elem.title.split(" | ");
   const [isFavorite, setIsFavorite] = useState(false);
   const { favorites, toggleFavorite } = useProduct();
+  const { addProductToCart, checkProductInCart } = useCart();
+  const [isEnrolled, setIsEnrolled] = useState(false);
 
   useEffect(() => {
     setIsFavorite(favorites.some((fav) => fav.slug === elem.slug));
-  }, [elem.slug, favorites]);
+    setIsEnrolled(checkProductInCart(elem.slug));
+  }, [elem.slug, favorites, checkProductInCart]);
 
   const handleToggleFavorite = () => {
     toggleFavorite(elem);
@@ -20,6 +24,11 @@ const Detail = ({ elem, open, handleClose }) => {
     if (isFavorite) {
       handleClose();
     }
+  };
+
+  const handleEnroll = () => {
+    addProductToCart(elem);
+    setIsEnrolled(true);
   };
 
   return (
@@ -56,8 +65,19 @@ const Detail = ({ elem, open, handleClose }) => {
         <Typography variant="body1" className={styles.price}>
           4-Month Course: {price}
         </Typography>
-        <Button variant="contained" className={styles.button}>
-          Enroll Now
+        <Button
+          variant="contained"
+          className={styles.button}
+          onClick={handleEnroll}
+          disabled={isEnrolled}
+          sx={{
+            backgroundColor: isEnrolled ? "#F06292" : "#4CAF50",
+            "&:hover": {
+              backgroundColor: isEnrolled ? "#E91E63" : "#45a049",
+            },
+          }}
+        >
+          {isEnrolled ? "Enrolled" : "Enroll Now"}
         </Button>
       </Box>
     </Modal>
