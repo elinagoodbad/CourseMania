@@ -1,8 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContextProvider";
+import { useProduct } from "../../context/ProductContextProvider";
+import { useCart } from "../../context/CartContextProvider";
 import styles from "./Navbar.module.css";
-import { IconButton } from "@mui/material";
+import { IconButton, Badge } from "@mui/material";
 import {
   ShoppingCartOutlined as ShoppingCartIcon,
   BookmarkBorder as BookmarkBorderIcon,
@@ -12,14 +14,21 @@ import { ADMIN } from "../../helpers/const";
 
 const Navbar = () => {
   const { currentUser, checkAuth, handleLogOut } = useAuth();
+  const { favorites } = useProduct();
+  const { cartLength } = useCart();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAddMenuOpen, setIsAddMenuOpen] = useState(false);
+  const [favoriteBadgeCount, setFavoriteBadgeCount] = useState(0);
   const menuRef = useRef(null);
   const addMenuRef = useRef(null);
 
   useEffect(() => {
     checkAuth();
   }, [checkAuth]);
+
+  useEffect(() => {
+    setFavoriteBadgeCount(favorites.length);
+  }, [favorites]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -30,7 +39,6 @@ const Navbar = () => {
         setIsAddMenuOpen(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
@@ -89,12 +97,16 @@ const Navbar = () => {
         <div className={styles["navbar-icons"]}>
           <Link to="/favorites">
             <IconButton className={styles["navbar-icon"]}>
-              <BookmarkBorderIcon />
+              <Badge badgeContent={favoriteBadgeCount} color="secondary">
+                <BookmarkBorderIcon />
+              </Badge>
             </IconButton>
           </Link>
           <Link to="/cart">
             <IconButton className={styles["navbar-icon"]}>
-              <ShoppingCartIcon />
+              <Badge badgeContent={cartLength} color="success">
+                <ShoppingCartIcon />
+              </Badge>
             </IconButton>
           </Link>
         </div>

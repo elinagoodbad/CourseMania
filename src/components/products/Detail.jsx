@@ -10,7 +10,8 @@ const Detail = ({ elem, open, handleClose }) => {
   const [courseName, instructor, description, price] = elem.title.split(" | ");
   const [isFavorite, setIsFavorite] = useState(false);
   const { favorites, toggleFavorite } = useProduct();
-  const { addProductToCart, checkProductInCart } = useCart();
+  const { addProductToCart, deleteProductFromCart, checkProductInCart } =
+    useCart();
   const [isEnrolled, setIsEnrolled] = useState(false);
 
   useEffect(() => {
@@ -21,14 +22,15 @@ const Detail = ({ elem, open, handleClose }) => {
   const handleToggleFavorite = () => {
     toggleFavorite(elem);
     setIsFavorite(!isFavorite);
-    if (isFavorite) {
-      handleClose();
-    }
   };
 
-  const handleEnroll = () => {
-    addProductToCart(elem);
-    setIsEnrolled(true);
+  const handleEnrollToggle = () => {
+    if (isEnrolled) {
+      deleteProductFromCart(elem.slug);
+    } else {
+      addProductToCart(elem);
+    }
+    setIsEnrolled(!isEnrolled);
   };
 
   return (
@@ -68,16 +70,9 @@ const Detail = ({ elem, open, handleClose }) => {
         <Button
           variant="contained"
           className={styles.button}
-          onClick={handleEnroll}
-          disabled={isEnrolled}
-          sx={{
-            backgroundColor: isEnrolled ? "#F06292" : "#4CAF50",
-            "&:hover": {
-              backgroundColor: isEnrolled ? "#E91E63" : "#45a049",
-            },
-          }}
+          onClick={handleEnrollToggle}
         >
-          {isEnrolled ? "Enrolled" : "Enroll Now"}
+          {isEnrolled ? "Remove from Cart" : "Add to Cart"}
         </Button>
       </Box>
     </Modal>
