@@ -1,5 +1,10 @@
 .pageWrapper {
+  position: relative;
   background-color: #000000;
+  background-image: url("https://psv4.userapi.com/c909218/u557095737/docs/d53/792ee95859d0/stars-964022_1920.png?extra=PGEV700WtfTRhywbp6Kqiv7pcWE0pbXXkhE59ynEXDH_p1xebx8CgnRjx5beRAKLDS761BjFznmvbTbiuQFa9Gkhq7jRzjFoiw4WEWJvBHPiw22dtr3PIBPcX5M_QEL8KaQCc9zamsK-QmI2Lz3WSgsCEyWn");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   min-height: 100vh;
   padding: 60px 20px;
   display: flex;
@@ -10,7 +15,12 @@
 .faqContainer {
   width: 100%;
   max-width: 800px;
-  background-color: #111111;
+  background-color: rgba(
+    17,
+    17,
+    17,
+    0.9
+  ); /* Slightly transparent for overlay effect */
   border-radius: 30px;
   box-shadow: 0 20px 40px rgba(255, 255, 255, 0.05);
   overflow: hidden;
