@@ -50,6 +50,7 @@ const FAQComponent = () => {
 
   return (
     <div className={styles.pageWrapper}>
+      <div className={styles.backgroundWrapper}></div>
       <div className={styles.faqContainer}>
         <h2 className={styles.faqTitle}>Frequently Asked Questions</h2>
         {faqData.map((item, index) => (
