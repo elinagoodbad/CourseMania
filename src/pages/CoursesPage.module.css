@@ -1,4 +1,9 @@
 .pageContainer {
   background-color: black;
+  position: relative;
+  background-image: url("https://psv4.userapi.com/c909218/u557095737/docs/d53/792ee95859d0/stars-964022_1920.png?extra=PGEV700WtfTRhywbp6Kqiv7pcWE0pbXXkhE59ynEXDH_p1xebx8CgnRjx5beRAKLDS761BjFznmvbTbiuQFa9Gkhq7jRzjFoiw4WEWJvBHPiw22dtr3PIBPcX5M_QEL8KaQCc9zamsK-QmI2Lz3WSgsCEyWn");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   min-height: 100vh;
 }
