@@ -12,6 +12,7 @@ const ProductContextProvider = ({ children }) => {
     products: [],
     oneProduct: {},
     favorites: JSON.parse(localStorage.getItem("favorites")) || [],
+    reviews: [],
   };
 
   const reducer = (state = INIT_STATE, action) => {
@@ -22,6 +23,8 @@ const ProductContextProvider = ({ children }) => {
         return { ...state, oneProduct: action.payload };
       case "SET_FAVORITES":
         return { ...state, favorites: action.payload };
+      case "GET_REVIEWS":
+        return { ...state, reviews: action.payload };
       default:
         return state;
     }
@@ -90,6 +93,7 @@ const ProductContextProvider = ({ children }) => {
   const getOneProduct = async (slug) => {
     try {
       const { data } = await axios.get(`${API}/courses/${slug}/`);
+      console.log("Product Data:", data); // Добавлено для вывода объекта продукта в консоль
       dispatch({
         type: "GET_ONE_PRODUCT",
         payload: data,
@@ -123,6 +127,30 @@ const ProductContextProvider = ({ children }) => {
     localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
   };
 
+  // ! addReviews
+  const addReview = async (slug, formData) => {
+    try {
+      await axios.post(
+        `${API}/courses/${slug}/comments/`,
+        formData,
+        getConfig()
+      );
+      await getReviews(slug);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // ! addReview
+  const getReviews = async (slug) => {
+    try {
+      const { data } = await axios.get(`${API}/courses/${slug}/`);
+      dispatch({ type: "GET_REVIEWS", payload: data.comments || [] });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const values = {
     addProduct,
     getProducts,
@@ -134,6 +162,9 @@ const ProductContextProvider = ({ children }) => {
     addProject,
     toggleFavorite,
     favorites: state.favorites,
+    reviews: state.reviews,
+    addReview,
+    getReviews,
   };
 
   return (
