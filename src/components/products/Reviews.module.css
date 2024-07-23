@@ -26,41 +26,44 @@
 }
 
 .reviewItem {
-  padding: 1rem 0;
+  padding: 0.5rem 0;
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
-}
-
-.avatar {
-  width: 48px !important;
-  height: 48px !important;
-  font-size: 1.2rem !important;
-  margin-right: 1rem;
-  background-color: #3f51b5;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  flex-shrink: 0;
 }
 
 .reviewContent {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  min-width: 0;
-  width: calc(100% - 60px);
+  width: 100%;
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0.25rem;
 }
 
 .username {
-  font-weight: 600;
+  font-weight: 600 !important;
   color: #ffffff;
-  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: -0.3rem !important;
+}
+
+.reviewDate {
+  color: #b0b0b0;
+  font-size: 0.75rem;
+  margin-bottom: -0.7rem !important;
 }
 
 .messagePaper {
   background-color: rgba(255, 255, 255, 0.1) !important;
-  padding: 1rem;
-  margin-bottom: 0.5rem;
-  border-radius: 12px !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  padding: 0.75rem;
+  border-radius: 8px !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
   word-wrap: break-word;
   overflow-wrap: break-word;
   width: 100%;
@@ -68,13 +71,9 @@
 
 .reviewText {
   color: #ffffff;
-  line-height: 1.5;
+  line-height: 1.4;
   white-space: pre-wrap;
-}
-
-.reviewDate {
-  color: #b0b0b0;
-  align-self: flex-end;
+  font-size: 0.9rem;
 }
 
 .newReviewContainer {
@@ -146,4 +145,11 @@
 
 .reviewsList::-webkit-scrollbar-thumb:hover {
   background-color: rgba(255, 255, 255, 0.5);
+}
+.loginPrompt {
+  color: #ffffff;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 600 !important;
 }

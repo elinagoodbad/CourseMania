@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { createContext, useContext, useReducer, useEffect } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 import { API } from "../helpers/const";
 import { useNavigate } from "react-router-dom";
 
@@ -93,7 +93,6 @@ const ProductContextProvider = ({ children }) => {
   const getOneProduct = async (slug) => {
     try {
       const { data } = await axios.get(`${API}/courses/${slug}/`);
-      console.log("Product Data:", data); // Добавлено для вывода объекта продукта в консоль
       dispatch({
         type: "GET_ONE_PRODUCT",
         payload: data,
