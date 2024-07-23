@@ -35,8 +35,7 @@
 
 .footerLinks,
 .footerContact,
-.footerSocial,
-.footerAccount {
+.footerSocial {
   display: flex;
   flex-direction: column;
 }
@@ -79,24 +78,22 @@
 }
 
 .footerAccount {
-  align-self: flex-start; /* Align to the start of the container */
-  margin-top: 40px; /* Increased top margin */
-  margin-left: 15%; /* Align more to the left */
+  margin-top: 40px; /* Увеличенный отступ сверху */
 }
 
 .accountButton {
-  background-color: #8d1149; /* Dark pink color */
+  background-color: #db0565; /* Темно-розовый цвет */
   color: white;
-  padding: 15px 30px; /* Increase padding */
+  padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1.2em; /* Increase font size */
+  font-size: 1em;
   transition: background-color 0.3s ease;
 }
 
 .accountButton:hover {
-  background-color: #ac2051; /* Darker on hover */
+  background-color: #e81a62; /* Темнее при наведении */
 }
 
 .paymentIcons {
