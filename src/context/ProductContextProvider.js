@@ -140,7 +140,7 @@ const ProductContextProvider = ({ children }) => {
     }
   };
 
-  // ! addReview
+  // ! getReviews
   const getReviews = async (slug) => {
     try {
       const { data } = await axios.get(`${API}/courses/${slug}/`);
