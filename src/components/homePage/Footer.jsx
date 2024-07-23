@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Footer.module.css"; // Import the CSS module
+import styles from "./Footer.module.css"; // Importing the CSS module
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
@@ -14,32 +14,27 @@ const Footer = () => {
       <div className={styles.container}>
         <div className={styles.footerTop}>
           <div className={styles.footerLogo}>
-            <img
-              src="https://static.tildacdn.com/tild6562-3333-4134-b638-356237333662/logo_vector.svg"
-              alt="uSkillz Logo"
-              className={styles.logoImage}
-            />
-            <p className={styles.logoText}>uSkillz</p>
+            <p className={styles.logoText}>Let's Do It!</p>
           </div>
           <div className={styles.footerLinks}>
             <h4 className={styles.footerTitle}>Navigation</h4>
             <ul className={styles.footerList}>
               <li>
-                <a href="#">About Us</a>
-              </li>
-              <li>
-                <a href="#">Services</a>
-              </li>
-              <li>
                 <a href="#">Courses</a>
               </li>
               <li>
-                <a href="#">Blog</a>
+                <a href="#">About</a>
+              </li>
+              <li>
+                <a href="#">Contact</a>
+              </li>
+              <li>
+                <a href="#"></a>
               </li>
             </ul>
           </div>
           <div className={styles.footerContact}>
-            <h4 className={styles.footerTitle}>Contacts</h4>
+            <h4 className={styles.footerTitle}>Contact</h4>
             <ul className={styles.footerList}>
               <li>
                 <i className="fa fa-map-marker"></i> Kyrgyzstan, Bishkek
@@ -70,21 +65,8 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className={styles.footerAccount}>
-          <button className={styles.accountButton}>Account</button>
-        </div>
-        <div className={styles.paymentIcons}>
-          <img
-            src="https://media.licdn.com/dms/image/C4D12AQHlVmYMucjSIA/article-cover_image-shrink_720_1280/0/1628177193073?e=2147483647&v=beta&t=peBfQFzZfheBlCxcnCmkAm4N_uYK5nSd7cPf7OdaGo8"
-            alt="Visa"
-          />
-          <img
-            src="https://www.svgrepo.com/show/362015/mastercard-3.svg"
-            alt="MasterCard"
-          />
-        </div>
         <div className={styles.footerBottom}>
-          <p>{new Date().getFullYear()} uSkillz. All rights reserved.</p>
+          <p>{new Date().getFullYear()} Let's Do It!. All rights reserved.</p>
         </div>
       </div>
     </footer>
@@ -92,4 +74,3 @@ const Footer = () => {
 };
 
 export default Footer;
-ы;
