@@ -12,8 +12,7 @@ import Reviews from "../products/Reviews";
 const Detail = ({ elem, open, handleClose }) => {
   const [courseName, instructor, description, price] = elem.title.split(" | ");
   const [isFavorite, setIsFavorite] = useState(false);
-  const { favorites, toggleFavorite, likeProduct, dislikeProduct } =
-    useProduct();
+  const { favorites, toggleFavorite } = useProduct();
   const { addProductToCart, deleteProductFromCart, checkProductInCart } =
     useCart();
   const [isEnrolled, setIsEnrolled] = useState(false);
@@ -24,12 +23,8 @@ const Detail = ({ elem, open, handleClose }) => {
     setIsEnrolled(checkProductInCart(elem.slug));
   }, [elem.slug, favorites, checkProductInCart]);
 
-  const handleToggleFavorite = async () => {
-    if (isFavorite) {
-      await dislikeProduct(elem.slug);
-    } else {
-      await likeProduct(elem.slug);
-    }
+  const handleToggleFavorite = () => {
+    toggleFavorite(elem);
     setIsFavorite(!isFavorite);
   };
 
