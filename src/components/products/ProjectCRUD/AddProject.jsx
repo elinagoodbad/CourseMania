@@ -35,7 +35,7 @@ const AddProject = () => {
                 value={newProject.name}
                 onChange={handleInputChange}
                 className={styles.input}
-                placeholder="Student Name"
+                placeholder="Project Name"
                 required
               />
             </div>

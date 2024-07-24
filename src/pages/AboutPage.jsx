@@ -6,8 +6,8 @@ import img2 from "./assets/img2.jpg";
 import img3 from "./assets/img3.jpg";
 import img4 from "./assets/img4.jpg";
 import img5 from "./assets/img5.jpeg";
-import img6 from "./assets/img6.jpg";
 import Parallax from "./Parallax";
+import Footer from "../components/homePage/Footer";
 
 const AboutPage = () => {
   const [isRevealed, setIsRevealed] = useState(false);
@@ -107,107 +107,98 @@ const AboutPage = () => {
   }, []);
 
   return (
-    <div className={styles.aboutContainer}>
-      <Parallax />
-      {/* <header className={styles.header}>
-        <p className={styles.headerSubtitle}>
-          Get to know more about our mission, vision, and values.
-        </p>
-      </header> */}
-      {/* <header className={styles.header}>
-        <div className={styles.headerImageWrapper}>
-          <img src={img6} alt="Center Image" className={styles.headerImage} />
+    <div>
+      <div className={styles.aboutContainer}>
+        <Parallax />
 
-          <div className={styles.backgroundText}>OUR TEAM</div>
-        </div>
-      </header> */}
+        <section className={styles.talentSection}>
+          <h1 className={styles.title}>
+            <span className={styles.accent}>Discover</span> Your Potential!
+          </h1>
+          <p className={styles.subtitle}>
+            Empowering Students for a Brighter Future
+          </p>
 
-      <section className={styles.talentSection}>
-        <h1 className={styles.title}>
-          <span className={styles.accent}>Discover</span> Your Potential!
-        </h1>
-        <p className={styles.subtitle}>
-          Empowering Students for a Brighter Future
-        </p>
-
-        <div
-          ref={cardsRef}
-          className={`${styles.cards} ${isRevealed ? styles.reveal : ""}`}
-        >
-          {profileData.map((profile, index) => (
-            <div key={index} className={`${styles.card} ${styles.cardFront}`}>
-              <img
-                src={profile.img}
-                alt={`Profile ${index + 1}`}
-                className={styles.profileImage}
-              />
-              <div className={styles.cardInfo}>
-                <div className={styles.verified}>
-                  <Verified className={styles.verifiedIcon} />
-                  Verified
-                </div>
-                <div className={styles.name}>{profile.name}</div>
-                <div className={styles.position}>{profile.position}</div>
-                <div className={styles.socialIcons}>
-                  <a
-                    href={profile.socialLinks.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <LinkedIn className={styles.linkedinIcon} />
-                  </a>
+          <div
+            ref={cardsRef}
+            className={`${styles.cards} ${isRevealed ? styles.reveal : ""}`}
+          >
+            {profileData.map((profile, index) => (
+              <div key={index} className={`${styles.card} ${styles.cardFront}`}>
+                <img
+                  src={profile.img}
+                  alt={`Profile ${index + 1}`}
+                  className={styles.profileImage}
+                />
+                <div className={styles.cardInfo}>
+                  <div className={styles.verified}>
+                    <Verified className={styles.verifiedIcon} />
+                    Verified
+                  </div>
+                  <div className={styles.name}>{profile.name}</div>
+                  <div className={styles.position}>{profile.position}</div>
+                  <div className={styles.socialIcons}>
+                    <a
+                      href={profile.socialLinks.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <LinkedIn className={styles.linkedinIcon} />
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
-      <section className={styles.introSection}>
-        <h2 className={styles.sectionTitle}>Welcome to Our Learning Hub</h2>
-        <p className={styles.sectionContent}>
-          We are excited to offer you a range of educational videos to help you
-          start your journey in Frontend Development. Explore these resources
-          and take your skills to the next level!
-        </p>
-        <div className={styles.videoGrid}>
-          {videos.slice(0, 3).map((video) => (
-            <div key={video.id} className={styles.videoCard}>
-              <iframe
-                className={styles.videoFrame}
-                src={`https://www.youtube.com/embed/${video.url
-                  .split("/")
-                  .pop()}`}
-                title={video.title}
-                frameBorder="0"
-                allowFullScreen
-              ></iframe>
-              <div className={styles.videoInfo}>
-                <h3 className={styles.videoTitle}>{video.title}</h3>
-                <p className={styles.videoDescription}>{video.description}</p>
+            ))}
+          </div>
+        </section>
+        <section className={styles.introSection}>
+          <h2 className={styles.sectionTitle}>Welcome to Our Learning Hub</h2>
+          <p className={styles.sectionContent}>
+            We are excited to offer you a range of educational videos to help
+            you start your journey in Frontend Development. Explore these
+            resources and take your skills to the next level!
+          </p>
+          <div className={styles.videoGrid}>
+            {videos.slice(0, 3).map((video) => (
+              <div key={video.id} className={styles.videoCard}>
+                <iframe
+                  className={styles.videoFrame}
+                  src={`https://www.youtube.com/embed/${video.url
+                    .split("/")
+                    .pop()}`}
+                  title={video.title}
+                  frameBorder="0"
+                  allowFullScreen
+                ></iframe>
+                <div className={styles.videoInfo}>
+                  <h3 className={styles.videoTitle}>{video.title}</h3>
+                  <p className={styles.videoDescription}>{video.description}</p>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-        <div className={styles.videoGrid}>
-          {videos.slice(3).map((video) => (
-            <div key={video.id} className={styles.videoCard}>
-              <iframe
-                className={styles.videoFrame}
-                src={`https://www.youtube.com/embed/${video.url
-                  .split("/")
-                  .pop()}`}
-                title={video.title}
-                frameBorder="0"
-                allowFullScreen
-              ></iframe>
-              <div className={styles.videoInfo}>
-                <h3 className={styles.videoTitle}>{video.title}</h3>
-                <p className={styles.videoDescription}>{video.description}</p>
+            ))}
+          </div>
+          <div className={styles.videoGrid}>
+            {videos.slice(3).map((video) => (
+              <div key={video.id} className={styles.videoCard}>
+                <iframe
+                  className={styles.videoFrame}
+                  src={`https://www.youtube.com/embed/${video.url
+                    .split("/")
+                    .pop()}`}
+                  title={video.title}
+                  frameBorder="0"
+                  allowFullScreen
+                ></iframe>
+                <div className={styles.videoInfo}>
+                  <h3 className={styles.videoTitle}>{video.title}</h3>
+                  <p className={styles.videoDescription}>{video.description}</p>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+      </div>
+      <Footer />
     </div>
   );
 };

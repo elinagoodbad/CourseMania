@@ -10,7 +10,7 @@ const Header = () => {
           type="video/mp4"
         />
       </video>
-      <h1 className={styles.title}>Let's Do It!</h1>
+      <h1 className={styles.title}>Learn And Don't Flounder!</h1>
     </header>
   );
 };

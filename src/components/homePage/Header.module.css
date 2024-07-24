@@ -3,6 +3,9 @@
   width: 100%;
   height: 92vh;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .backgroundVideo {
@@ -15,14 +18,12 @@
 }
 
 .title {
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
   color: white;
   font-size: 5rem;
   font-weight: bold;
   text-align: center;
+  white-space: nowrap;
   z-index: 1;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
