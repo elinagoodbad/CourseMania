@@ -110,3 +110,21 @@
     grid-template-columns: 1fr;
   }
 }
+.viewProjectsButton {
+  display: block;
+  width: 200px;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #2f342f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.viewProjectsButton:hover {
+  background-color: #525852;
+}

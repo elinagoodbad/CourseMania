@@ -1,8 +1,6 @@
-/* AboutPage.module.css */
-
 .aboutContainer {
   font-family: "Arial", sans-serif;
-  color: #ffffff;
+  color: #333;
   padding: 20px;
   background-color: black;
   animation: fadeInUp 1s ease-in-out;
@@ -17,10 +15,9 @@
 }
 
 .headerSubtitle {
-  font-size: 2rem;
-  color: #ffffff;
+  font-size: 1.5rem;
+  color: #ddd;
   margin: 20px 0;
-  font-weight: bold;
 }
 
 .headerImage {
@@ -29,7 +26,7 @@
   height: 400px;
   object-fit: cover;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .introSection {
@@ -37,26 +34,16 @@
   margin: 40px 0;
 }
 
-.introText {
-  max-width: 1400px;
-  margin: 0 auto 40px;
-  padding: 0 20px;
-}
-
 .sectionTitle {
-  font-size: 5rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin-top: -3.8rem;
+  font-size: 2.5rem;
+  color: #ddd;
+  margin-bottom: 1rem;
 }
 
 .sectionContent {
-  margin-top: -0.5rem;
-  font-size: 2.5rem;
-  color: #ffffff;
-  margin-bottom: 30px;
-  font-weight: bold;
-  line-height: 1.3;
+  font-size: 1.25rem;
+  color: #ddd;
+  margin-bottom: 20px;
 }
 
 .videoGrid {
@@ -70,7 +57,7 @@
   background: #1c1c1c;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .videoFrame {
@@ -84,16 +71,15 @@
 }
 
 .videoTitle {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  color: #ffffff;
+  color: #e0e0e0;
   margin-bottom: 10px;
 }
 
 .videoDescription {
-  font-size: 1.2rem;
-  color: #ffffff;
-  font-weight: bold;
+  font-size: 1rem;
+  color: #aaa;
 }
 
 .talentSection {
@@ -102,21 +88,20 @@
 }
 
 .title {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 0.5rem;
-  color: #ffffff;
-  font-weight: bold;
+  color: #ddd;
+  margin-top: 50px;
 }
 
 .accent {
-  color: #ffffff;
+  color: #ddd;
 }
 
 .subtitle {
-  font-size: 2rem;
-  color: #ffffff;
+  font-size: 1.5rem;
+  color: #ddd;
   margin-bottom: 20px;
-  font-weight: bold;
 }
 
 .cards {
@@ -132,14 +117,14 @@
   border-radius: 10px;
   overflow: hidden;
   width: 250px;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transform: scale(0.9);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
   transform: scale(1);
-  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .profileImage {
@@ -151,9 +136,6 @@
 .cardInfo {
   padding: 10px;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .verified {
@@ -162,43 +144,38 @@
   justify-content: center;
   color: #4caf50;
   margin-bottom: 10px;
-  font-size: 1.2rem;
-  font-weight: bold;
 }
 
 .verifiedIcon {
   margin-right: 5px;
 }
 
-.nameAndLinkedIn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+.name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
   margin-bottom: 5px;
 }
 
-.cardName {
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: #ffffff;
-  margin: 0;
+.position {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 10px;
 }
 
-.cardPosition {
-  font-size: 1.2rem;
-  color: #ffffff;
-  margin: 0;
-  font-weight: bold;
+.socialIcons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
-.linkedinIcon {
-  color: #ffffff;
+.socialIcons a {
+  color: #fff;
+  font-size: 24px;
   transition: transform 0.3s ease;
-  margin-top: -5px;
 }
 
-.linkedinIcon:hover {
+.socialIcons a:hover {
   transform: scale(1.2);
 }
 
@@ -209,17 +186,15 @@
 }
 
 .contactSection .sectionTitle {
-  font-size: 3.5rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
-  color: #ffffff;
-  font-weight: bold;
+  color: #ddd;
 }
 
 .contactSection .sectionContent {
-  font-size: 1.5rem;
-  color: #ffffff;
+  font-size: 1.25rem;
+  color: #ddd;
   margin-bottom: 20px;
-  font-weight: bold;
 }
 
 .contactDetails {
@@ -230,101 +205,115 @@
 }
 
 .contactItem {
-  font-size: 1.2rem;
-  color: #ffffff;
+  font-size: 1rem;
+  color: #ddd;
+}
+/* .header {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.headerSubtitle {
+  font-size: 1.5rem;
+  color: #ddd;
+  margin: 20px 0;
+}
+
+.headerImageWrapper {
+  position: relative;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.headerImageWrapper::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  transform: translate(-50%, -50%);
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05) translate(-50%, -50%);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+.headerImage {
+  width: 300px; 
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.backgroundText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 4rem;
   font-weight: bold;
+  text-align: center;
+  pointer-events: none;
+} */
+/* AboutPage.module.css */
+/* AboutPage.module.css */
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Media Queries for Responsiveness */
-
-@media (max-width: 1200px) {
-  .headerImage {
-    height: 300px;
-  }
-
-  .sectionTitle,
-  .title {
-    font-size: 2.5rem;
-  }
-
-  .sectionContent,
-  .subtitle {
-    font-size: 1.3rem;
-  }
+.headerImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 400px; /* Adjust height as needed */
+  overflow: hidden;
+  background: url("./assets/img6.jpg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed; /* Parallax effect */
 }
 
-@media (max-width: 992px) {
-  .headerImage {
-    height: 250px;
-  }
-
-  .videoGrid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  }
-
-  .card {
-    width: 220px;
-  }
+.headerImage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  border-radius: 8px; /* Optional: adjust border-radius as needed */
+  border: 5px solid #fff; /* Border color and thickness */
 }
 
-@media (max-width: 768px) {
-  .headerSubtitle {
-    font-size: 1.5rem;
-  }
-
-  .sectionTitle,
-  .title {
-    font-size: 2rem;
-  }
-
-  .sectionContent,
-  .subtitle {
-    font-size: 1.1rem;
-  }
-
-  .videoGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .cards {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .card {
-    width: 80%;
-    max-width: 300px;
-  }
-}
-
-@media (max-width: 576px) {
-  .headerImage {
-    height: 200px;
-  }
-
-  .headerSubtitle {
-    font-size: 1.2rem;
-  }
-
-  .sectionTitle,
-  .title {
-    font-size: 1.8rem;
-  }
-
-  .sectionContent,
-  .subtitle {
-    font-size: 1rem;
-  }
-
-  .contactSection .sectionTitle {
-    font-size: 2.5rem;
-  }
-
-  .contactSection .sectionContent {
-    font-size: 1.2rem;
-  }
-
-  .contactItem {
-    font-size: 1rem;
-  }
+.backgroundText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+  pointer-events: none;
 }

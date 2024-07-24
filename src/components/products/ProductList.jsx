@@ -3,11 +3,13 @@ import { useProduct } from "../../context/ProductContextProvider";
 import ProductCard from "./ProductCard";
 import styles from "./ProductList.module.css";
 import SearchIcon from "@mui/icons-material/Search";
+import { useNavigate } from "react-router-dom";
 
 const ProductList = () => {
   const { products, getProducts } = useProduct();
   const [searchQuery, setSearchQuery] = useState("");
   const [category, setCategory] = useState("All");
+  const navigate = useNavigate();
 
   useEffect(() => {
     getProducts(searchQuery);
@@ -19,6 +21,10 @@ const ProductList = () => {
 
   const handleCategoryChange = (newCategory) => {
     setCategory(newCategory);
+  };
+
+  const handleViewProjects = () => {
+    navigate("/projectlist");
   };
 
   const filteredProducts = products.filter((product) => {
@@ -76,6 +82,12 @@ const ProductList = () => {
           <ProductCard key={elem.slug} elem={elem} />
         ))}
       </div>
+      <button
+        className={styles.viewProjectsButton}
+        onClick={handleViewProjects}
+      >
+        View Projects
+      </button>
     </div>
   );
 };

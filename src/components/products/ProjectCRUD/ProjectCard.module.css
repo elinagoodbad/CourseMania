@@ -1,0 +1,89 @@
+.projectCard {
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  padding: 20px;
+  color: white;
+  width: 200px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.projectCard img {
+  border-radius: 10px;
+  width: 150px;
+  height: 150px;
+}
+
+.projectCard button {
+  background-color: #ff0044;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.projectCard button:hover {
+  background-color: #e6003a;
+}
+
+.projectCardEdit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.projectCardEdit input[type="text"] {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+}
+
+.projectCardEdit input[type="file"] {
+  margin-bottom: 10px;
+}
+
+.projectCardEdit button {
+  margin-top: 10px;
+  background-color: #ff0044;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.projectCardEdit button:hover {
+  background-color: #e6003a;
+}
+
+.iconButton {
+  color: rgba(255, 255, 255, 0.8) !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 50% !important;
+  transition: all 0.3s ease !important;
+  padding: 0.23rem !important;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.iconButton:hover {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.iconButton:active {
+  transform: translateY(-1px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+  font-size: 1rem !important;
+}
