@@ -58,7 +58,7 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles["navbar-logo"]}>
-        <Link to="/">Let's Do It!</Link>
+        <Link to="/">Coursemania</Link>
       </div>
       <ul
         className={`${styles["navbar-links"]} ${
